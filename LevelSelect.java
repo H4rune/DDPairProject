@@ -1,7 +1,8 @@
 
-public class MainGame {
+public class LevelSelect {
+	
 	public static void main(String[] args) {
-		System.out.println("");
+		
 	}
 	
 }
