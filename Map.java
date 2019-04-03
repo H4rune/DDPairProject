@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Paint;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,9 +20,14 @@ public class Map extends JPanel {
 	}
 
 	Map(int width, int height){
-		this.setSize(width, height);
-		frame.add(this);
+		frame.setSize(width,height);
+		Graphics g = frame.getGraphics();
+		frame.paint(g); // will this work, if not which graphics should be passed as a parameter?
 		frame.setVisible(false);
+	}
+	//Call this to call the bottom paintComponent class code and update the map
+	public void updateMap() {
+		frame.repaint();
 	}
 
 	public void addCharacter(Character character) {
