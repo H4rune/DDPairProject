@@ -4,4 +4,10 @@ public class WallBlock extends Character {
 		
 	}
 
+	@Override
+	public void updatePosition() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

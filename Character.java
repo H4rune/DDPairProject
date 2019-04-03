@@ -9,7 +9,10 @@ import java.awt.event.*;
 
 
 public abstract class Character {
-	
+	int hM = 10;
+	int vM = 10;
+	int xComponent = 0;
+	int yComponent = 0;
 	
 	Image x = null;
 	static JLayeredPane EverythingButPlayer;
@@ -34,9 +37,7 @@ public abstract class Character {
 		return null;
 	}
 	
-	public void updatePosition() {
-		
-	}
+	abstract public void updatePosition() ;
 	
 	//Returns positional data
 	public int getX() {
@@ -44,6 +45,12 @@ public abstract class Character {
 	}
 	public int getY() {
 		return 0;
+	}
+	public void setX(int num) {
+		xComponent = num;
+	}
+	public void setY(int num) {
+		yComponent = num;
 	}
 	
 }

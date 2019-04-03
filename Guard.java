@@ -9,4 +9,9 @@ public class Guard extends Character {
 	public void setCollisionReaction() {
 
 	}
+	@Override
+	public void updatePosition() {
+		// TODO Auto-generated method stub
+		
+	}
 }

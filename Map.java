@@ -9,40 +9,44 @@ import java.util.ArrayList;
 import java.awt.event.*;
 
 public class Map extends JPanel {
-	
+
 	JFrame frame = new JFrame();
 	ArrayList<Character> characters = new ArrayList<Character>();
-	
+	Character player = characters.get(0);
+
 	public void setBackground() {
-		
+
 	}
-	
+
 	Map(int width, int height){
 		this.setSize(width, height);
 		frame.add(this);
 		frame.setVisible(false);
 	}
-	
+
 	public void addCharacter(Character character) {
 		characters.add(character);
 	}
-	
-	
+
+//	public void actionPerformed(ActionEvent e) {
+//
+//		player.updatePosition();
+//	}
 	public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        for(Character character:characters) {
-        	character.updatePosition();
-        	
-        	int xPos = character.getX();
-        	int yPos = character.getY();
-        	
-        	Image image = character.getImage();
-        	
-        	g.drawImage(image, xPos, yPos, null);
-        }
-        
-    }
+		super.paintComponent(g);
+
+		for(Character character:characters) {
+			character.updatePosition();
+
+			int xPos = character.getX();
+			int yPos = character.getY();
+
+			Image image = character.getImage();
+
+			g.drawImage(image, xPos, yPos, null);
+		}
+
+	}
 
 }
 
