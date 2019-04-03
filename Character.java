@@ -1,12 +1,17 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.awt.event.*;
+
+
 public class Character implements ActionListener {
 	
+	
+	Image x = null;
 	static JLayeredPane EverythingButPlayer;
 	static Character l1;
 	
@@ -29,4 +34,21 @@ public class Character implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public Image getImage() {
+		return null;
+	}
+	
+	public void updatePosition() {
+		
+	}
+	
+	//Returns positional data
+	public int getX() {
+		return 0;
+	}
+	public int getY() {
+		return 0;
+	}
+	
 }
