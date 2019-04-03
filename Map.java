@@ -9,17 +9,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class Map extends JPanel {
+public class Map extends JPanel implements WindowListener{
 
-	JFrame frame = new JFrame();
-	ArrayList<Character> characters = new ArrayList<Character>();
-	Character player = characters.get(0);
+	JFrame frame;
+	ArrayList<Character> characters;
+	boolean loop;
+	boolean closing;
 
 	public void setBackground() {
 
 	}
 
 	Map(int width, int height){
+		frame = new JFrame();
+		characters = new ArrayList<Character>();
+		closing = false;
+		
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(this);
 		frame.setSize(width,height);
 		Graphics g = frame.getGraphics();
 		frame.paint(g); // will this work, if not which graphics should be passed as a parameter?
@@ -35,10 +42,6 @@ public class Map extends JPanel {
 		characters.add(character);
 	}
 
-//	public void actionPerformed(ActionEvent e) {
-//
-//		player.updatePosition();
-//	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -53,6 +56,59 @@ public class Map extends JPanel {
 			g.drawImage(image, xPos, yPos, null);
 		}
 
+	}
+	
+	public void mainLoop() {
+		loop = true;
+		while(loop) {
+			updateMap();
+			if(characters.isEmpty())
+				loop = false;
+			if(closing)
+				loop = false;
+		}
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		closing = true;
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
