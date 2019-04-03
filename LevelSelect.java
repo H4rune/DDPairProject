@@ -24,10 +24,10 @@ public class LevelSelect implements ActionListener{
 	JButton level9 = new JButton();
 	JButton level10 = new JButton();
 	
-	
+	static LevelSelect main;
 	
 	public static void main(String[] args) {
-		LevelSelect main = new LevelSelect();
+		main = new LevelSelect();
 	}
 	
 	LevelSelect(){
@@ -77,14 +77,90 @@ public class LevelSelect implements ActionListener{
 		contentPane.add(level10);
 		
 		frame.add(contentPane);
-		frame.pack();
+		frame.setSize(400, 500);
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	
+	
+	//Runs the respective level
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		e.getActionCommand();
+		frame.setVisible(false);
+		if(e.getActionCommand().equals("1")) {
+			create1();
+		}
+		else if(e.getActionCommand().equals("2")) {
+			create2();
+		}
+		else if(e.getActionCommand().equals("3")) {
+			create3();
+		}
+		else if(e.getActionCommand().equals("4")) {
+			create4();
+		}
+		else if(e.getActionCommand().equals("5")) {
+			create5();
+		}
+		else if(e.getActionCommand().equals("6")) {
+			create6();
+		}
+		else if(e.getActionCommand().equals("7")) {
+			create7();
+		}
+		else if(e.getActionCommand().equals("8")) {
+			create8();
+		}
+		else if(e.getActionCommand().equals("9")) {
+			create9();
+		}
+		else if(e.getActionCommand().equals("10")) {
+			create10();
+		}
+		frame.setVisible(true);
+	}
+	
+	
+	//Place all characters into maps here
+	private void create1() {
+		
+	}
+
+	private void create2() {
+		
+	}
+
+	private void create3() {
+		
+	}
+
+	private void create4() {
+		
+	}
+
+	private void create5() {
+		
+	}
+
+	private void create6() {
+		
+	}
+
+	private void create7() {
+		
+	}
+
+	private void create8() {
+		
+	}
+
+	private void create9() {
+		
+	}
+
+	private void create10() {
+		
 	}
 	
 }

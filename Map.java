@@ -28,6 +28,7 @@ public class Map extends JPanel {
 	//Call this to call the bottom paintComponent class code and update the map
 	public void updateMap() {
 		frame.repaint();
+		frame.setVisible(true);
 	}
 
 	public void addCharacter(Character character) {
