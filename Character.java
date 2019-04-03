@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.awt.event.*;
 
 
-public class Character implements ActionListener {
+public abstract class Character {
 	
 	
 	Image x = null;
@@ -29,11 +29,6 @@ public class Character implements ActionListener {
 	   
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public Image getImage() {
 		return null;

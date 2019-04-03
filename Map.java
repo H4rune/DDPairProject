@@ -27,6 +27,7 @@ public class Map extends JPanel {
 		characters.add(character);
 	}
 	
+	
 	public void paintComponent(Graphics g) {
         super.paintComponent(g);
         
