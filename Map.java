@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class Map extends JPanel implements Runnable{
+public class Map extends JPanel implements Runnable, KeyListener{
 
 	JFrame frame;
 	ArrayList<Character> characters;
@@ -21,6 +21,8 @@ public class Map extends JPanel implements Runnable{
 	boolean closing;
 	Map singleton;
 	Thread thread;
+	int dx = 0;
+	int dy = 0;
 	
 	
 
@@ -42,6 +44,9 @@ public class Map extends JPanel implements Runnable{
 		frame.add(singleton);
 		singleton.paintComponents(g);
 		frame.setVisible(true);
+		
+		frame.addKeyListener(this);
+		
 //		System.out.println("does this");
 	}
 	//Call this to call the bottom paintComponent class code and update the map
@@ -61,6 +66,8 @@ public class Map extends JPanel implements Runnable{
 //		System.out.println("goes herer");
 
 		for(Character character:characters) {
+			character.setMovement(dx, dy);
+			
 			character.updatePosition();
 
 			int xPos = character.getX();
@@ -135,6 +142,47 @@ public class Map extends JPanel implements Runnable{
 		      }
 		   }
 		}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		int buttonPressed = e.getKeyCode();
+
+        if (buttonPressed == KeyEvent.VK_LEFT) {
+            dx = -1;
+        }
+
+        if (buttonPressed == KeyEvent.VK_RIGHT) {
+        	dx = 1;
+        }
+
+        if (buttonPressed == KeyEvent.VK_UP) {
+        	dy = -1;
+        }
+
+        if (buttonPressed == KeyEvent.VK_DOWN) {
+        	dy = 1;
+        }
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		int buttonPressed = e.getKeyCode();
+        
+        //TODO 
+        //need to fix this so can press multiple direction/buttons
+        
+        dx = 0;
+        dy = 0;
+       
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

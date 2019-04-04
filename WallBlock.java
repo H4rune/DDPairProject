@@ -10,4 +10,10 @@ public class WallBlock extends Character {
 		
 	}
 
+	@Override
+	public void setMovement(int dx, int dy) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

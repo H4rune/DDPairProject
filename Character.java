@@ -11,6 +11,7 @@ import java.awt.event.*;
 public abstract class Character {
 	int hM = 10;
 	int vM = 10;
+	int speedMultiplier = 1;
 	int xComponent = 50;
 	int yComponent = 50;
 	
@@ -24,6 +25,8 @@ public abstract class Character {
 	public Image getImage() {
 		return image;
 	}
+	
+	abstract public void setMovement(int dx, int dy);
 	
 	abstract public void updatePosition();
 	

@@ -40,6 +40,7 @@ public class Player extends Character implements KeyListener{
 	 public void keyPressed(KeyEvent e) {
 
 	        int buttonPressed = e.getKeyCode();
+	        System.out.println("hfjshfjksdhfsfdsdfs");
 
 	        if (buttonPressed == KeyEvent.VK_LEFT) {
 	            xComponent-=hM;
@@ -62,8 +63,8 @@ public class Player extends Character implements KeyListener{
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-//		xComponent +=1;
-//		yComponent +=1;
+		xComponent += hM;
+		yComponent += vM;
 		
 	}
 
@@ -77,6 +78,13 @@ public class Player extends Character implements KeyListener{
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setMovement(int dx, int dy) {
+		// TODO Auto-generated method stub
+		hM = dx * speedMultiplier;
+		vM = dy * speedMultiplier;
 	}
 
 }
