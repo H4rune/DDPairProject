@@ -1,6 +1,10 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Paint;
 import java.awt.image.BufferedImage;
@@ -42,9 +46,10 @@ public class Map extends JPanel implements Runnable{
 	}
 	//Call this to call the bottom paintComponent class code and update the map
 	public void updateMap() {//Does not call paintComponent
-		Graphics g = frame.getGraphics();
+		Graphics g = singleton.getGraphics();
 		singleton.paint(g);
 		frame.setVisible(true);
+		
 	}
 
 	public void addCharacter(Character character) {
@@ -67,6 +72,8 @@ public class Map extends JPanel implements Runnable{
 		}
 
 	}
+	
+	
 	public void mainLoop() {//need to create a consistent game loop : (used fixed frame rates) http://www.java-gaming.org/index.php?topic=24220.0
 		//now in gameLoop
 		thread = new Thread(singleton,"test");
@@ -128,41 +135,6 @@ public class Map extends JPanel implements Runnable{
 		      }
 		   }
 		}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		int buttonPressed = e.getKeyCode();
-
-        if (buttonPressed == KeyEvent.VK_LEFT) {
-            System.out.println("sfkldsjfkldsjfs");
-        }
-
-        if (buttonPressed == KeyEvent.VK_RIGHT) {
-        	System.out.println("shjfdsfdfs");
-        }
-
-        if (buttonPressed == KeyEvent.VK_UP) {
-        	System.out.println("jdklsjfdsklf");
-        }
-
-        if (buttonPressed == KeyEvent.VK_DOWN) {
-        	System.out.println("sfdsfsdfds");
-        }
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-		
 
 
 }

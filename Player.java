@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 public class Player extends Character implements KeyListener{
 	
-	String imageAddress = "C:\\Users\\harun\\Desktop\\Example.jpg"; // Change this when back in school
+	String imageAddress = "Z:\\transparentDD.png"; // Change this when back in school
 	
 	Player(){
 		setCharacterImage();
