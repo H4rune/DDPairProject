@@ -11,40 +11,28 @@ import java.awt.event.*;
 public abstract class Character {
 	int hM = 10;
 	int vM = 10;
-	int xComponent = 0;
-	int yComponent = 0;
+	int xComponent = 50;
+	int yComponent = 50;
 	
-	Image x = null;
-	static JLayeredPane EverythingButPlayer;
-	static Character l1;
+	Image image;
 	
 	public Character() {
-	    EverythingButPlayer = new JLayeredPane();
-
-	    BufferedImage img = null;
-	    try {
-	        img = ImageIO.read(new File("BeachRoad.png"));
-	    } catch (IOException e) {
-	    }
-	    Graphics g = img.getGraphics();
-	    g.drawImage(img, 0, 0, null);
-
-	   
+		
 	}
 
 	
 	public Image getImage() {
-		return null;
+		return image;
 	}
 	
-	abstract public void updatePosition() ;
+	abstract public void updatePosition();
 	
 	//Returns positional data
 	public int getX() {
-		return 0;
+		return xComponent;
 	}
 	public int getY() {
-		return 0;
+		return yComponent;
 	}
 	public void setX(int num) {
 		xComponent = num;

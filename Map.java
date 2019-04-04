@@ -15,6 +15,9 @@ public class Map extends JPanel implements WindowListener{
 	ArrayList<Character> characters;
 	boolean loop;
 	boolean closing;
+	Map singleton;
+	
+	
 
 	public void setBackground() {
 
@@ -24,17 +27,22 @@ public class Map extends JPanel implements WindowListener{
 		frame = new JFrame();
 		characters = new ArrayList<Character>();
 		closing = false;
+		singleton = this;
 		
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.addWindowListener(this);
 		frame.setSize(width,height);
+		this.setSize(width,height);
 		Graphics g = frame.getGraphics();
-		frame.paint(g); // will this work, if not which graphics should be passed as a parameter?
+		frame.add(singleton);
+		singleton.paintComponents(g); 
 		frame.setVisible(false);
 	}
 	//Call this to call the bottom paintComponent class code and update the map
 	public void updateMap() {
-		frame.repaint();
+		Graphics g = frame.getGraphics();
+		singleton.paintComponents(g);
 		frame.setVisible(true);
 	}
 
@@ -44,6 +52,7 @@ public class Map extends JPanel implements WindowListener{
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		System.out.println("goes herer");
 
 		for(Character character:characters) {
 			character.updatePosition();
@@ -58,15 +67,42 @@ public class Map extends JPanel implements WindowListener{
 
 	}
 	
-	public void mainLoop() {
+	public void mainLoop() {//need to create a consistent game loop : (used fixed frame rates) http://www.java-gaming.org/index.php?topic=24220.0
 		loop = true;
+		//Try 1
 		while(loop) {
 			updateMap();
+			
 			if(characters.isEmpty())
 				loop = false;
-			if(closing)
+			if(closing) // this loop prevents the closing of the frame
 				loop = false;
 		}
+		
+		//Test Try
+//		for(int i= 0 ;i < 10000; i++ ) {
+//			updateMap();
+//		}
+		
+		//Another attempt a game loop
+		long lastLoopTime = System.nanoTime();
+		   final int TARGET_FPS = 60;
+		   final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+		   long lastFpsTime = 0;
+		   long fps = 0;
+		   
+
+		   // keep looping round til the game ends
+		   while (loop){
+			   updateMap();
+			   singleton.repaint();
+			   try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   }	
 	}
 
 	@Override
