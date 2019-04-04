@@ -85,7 +85,7 @@ public class Map extends JPanel implements Runnable{
 		// TODO Auto-generated method stub
 		boolean loop = true;
 		long lastLoopTime = System.nanoTime();
-		final int TARGET_FPS = 20;
+		final int TARGET_FPS = 30;
 		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
 		long fps = 0;
 		long lastFpsTime = 0;

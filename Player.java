@@ -62,8 +62,8 @@ public class Player extends Character implements KeyListener{
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-		xComponent +=1;
-		yComponent +=1;
+//		xComponent +=1;
+//		yComponent +=1;
 		
 	}
 
