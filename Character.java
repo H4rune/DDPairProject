@@ -11,7 +11,7 @@ import java.awt.event.*;
 public abstract class Character {
 	int hM = 10;
 	int vM = 10;
-	int speedMultiplier = 1;
+	int speedMultiplier = 3;
 	int xComponent = 50;
 	int yComponent = 50;
 	
@@ -43,5 +43,7 @@ public abstract class Character {
 	public void setY(int num) {
 		yComponent = num;
 	}
+	
+	abstract public int getAngle();
 	
 }

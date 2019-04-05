@@ -24,6 +24,7 @@ public class LevelSelect implements ActionListener{
 	JButton level9 = new JButton();
 	JButton level10 = new JButton();
 	
+	Map map;
 	static LevelSelect main;
 	
 	public static void main(String[] args) {
@@ -118,6 +119,7 @@ public class LevelSelect implements ActionListener{
 		else if(e.getActionCommand().equals("10")) {
 			create10();
 		}
+		
 		frame.setVisible(true);
 	}
 	
@@ -125,7 +127,7 @@ public class LevelSelect implements ActionListener{
 	//Place all characters into maps here
 	private void create1() {
 		Character player = new Player();
-		Map map = new Map(500,500);
+		map = new Map(500,500);
 		map.addCharacter(player);
 		map.mainLoop();
 	}

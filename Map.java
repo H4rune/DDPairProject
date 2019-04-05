@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class Map extends JPanel implements Runnable, KeyListener{
+public class Map extends JPanel implements Runnable, KeyListener {
 
 	JFrame frame;
 	ArrayList<Character> characters;
@@ -64,6 +64,8 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 //		System.out.println("goes herer");
+		
+		Graphics2D g2= (Graphics2D) g;
 
 		for(Character character:characters) {
 			character.setMovement(dx, dy);
@@ -72,7 +74,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 			int xPos = character.getX();
 			int yPos = character.getY();
-
+			
 			Image image = character.getImage();
 
 			g.drawImage(image, xPos, yPos, null);
@@ -169,12 +171,22 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		int buttonPressed = e.getKeyCode();
-        
-        //TODO 
-        //need to fix this so can press multiple direction/buttons
-        
-        dx = 0;
-        dy = 0;
+
+        if (buttonPressed == KeyEvent.VK_LEFT) {
+            dx = 0;
+        }
+
+        if (buttonPressed == KeyEvent.VK_RIGHT) {
+        	dx = 0;
+        }
+
+        if (buttonPressed == KeyEvent.VK_UP) {
+        	dy = 0;
+        }
+
+        if (buttonPressed == KeyEvent.VK_DOWN) {
+        	dy = 0;
+        }
        
 	}
 
@@ -183,6 +195,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 
 }
