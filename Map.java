@@ -7,13 +7,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Paint;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.*;
+import java.awt.MouseInfo;
 
-public class Map extends JPanel implements Runnable, KeyListener {
+public class Map extends JPanel implements Runnable, KeyListener{
 
 	JFrame frame;
 	ArrayList<Character> characters;
@@ -23,6 +25,7 @@ public class Map extends JPanel implements Runnable, KeyListener {
 	Thread thread;
 	int dx = 0;
 	int dy = 0;
+	Point cursor;
 	
 	
 
@@ -35,7 +38,6 @@ public class Map extends JPanel implements Runnable, KeyListener {
 		characters = new ArrayList<Character>();
 		closing = false;
 		singleton = this;
-		
 		
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setSize(width,height);
@@ -70,7 +72,10 @@ public class Map extends JPanel implements Runnable, KeyListener {
 		for(Character character:characters) {
 			character.setMovement(dx, dy);
 			
+			cursor = MouseInfo.getPointerInfo().getLocation();
+			character.setCursorPoint(cursor);
 			character.updatePosition();
+			
 
 			int xPos = character.getX();
 			int yPos = character.getY();
@@ -122,6 +127,9 @@ public class Map extends JPanel implements Runnable, KeyListener {
 		         lastFpsTime = 0;
 		         fps = 0;
 		      }
+		      
+		      
+		      
 		      
 		      try {
 		    	  updateMap();

@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +15,7 @@ public abstract class Character {
 	int speedMultiplier = 3;
 	int xComponent = 50;
 	int yComponent = 50;
+	Point cursorPoint;
 	
 	Image image;
 	
@@ -45,5 +47,12 @@ public abstract class Character {
 	}
 	
 	abstract public int getAngle();
+	public void setCursorPoint(Point p) {
+		cursorPoint = p;
+	}
+	
+	public void getCursorAngle() {
+		
+	}
 	
 }
