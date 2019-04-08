@@ -10,20 +10,16 @@ import javax.swing.ImageIcon;
 
 public class Player extends Character{
 	
-	String imageAddress = "T:\\Hello There\\transparentDD.png"; // Change this when back in school
+	String imageAddress = ""; // Change this when back in school
 	
-	Player(){
-		setCharacterImage();
+	Player(String imageFilePath){
+		imageAddress = imageFilePath;
+		setCharacterImage(imageAddress);
 	}
 	
-	private void setCharacterImage() {
-		try {
-			image = ImageIO.read(new File(imageAddress));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
+		
+	
 
 	public void throwProjectile() {
 

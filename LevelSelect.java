@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.awt.event.*;
 
 public class LevelSelect implements ActionListener{
-	
+	String playerAddress = "T:\\Hello There\\transparentDD.png";
+	String guardAddress = "T:\\Hello There\\guardSprite.png";
 	JFrame frame = new JFrame();
 	JPanel contentPane = new JPanel();
 	JButton level1 = new JButton();
@@ -126,7 +127,7 @@ public class LevelSelect implements ActionListener{
 	
 	//Place all characters into maps here
 	private void create1() {
-		Character player = new Player();
+		Character player = new Player(playerAddress);
 		map = new Map(500,500);
 		map.addCharacter(player);
 		map.mainLoop();
@@ -134,7 +135,7 @@ public class LevelSelect implements ActionListener{
 	
 
 	private void create2() {
-		Character guard = new Guard();
+		Character guard = new Guard(guardAddress);
 		map = new Map(500,500);
 		map.addCharacter(guard);
 		map.mainLoop();

@@ -1,9 +1,14 @@
 
 public class Guard extends Character {
 	
-	String imageAddress = "T:\\Hello There\\guardSprite.png";
+	String imageAddress = "";
 
-
+	Guard(String imageFilePath){
+		imageAddress = imageFilePath;
+		setCharacterImage(imageAddress);
+	}
+	
+	
 	public void setGuardPath() {
 		
 	}
