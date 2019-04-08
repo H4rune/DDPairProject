@@ -16,11 +16,22 @@ public abstract class Character {
 	int xComponent = 50;
 	int yComponent = 50;
 	Point cursorPoint;
+	String imageAddress = "T:\\Hello There\\transparentDD.png";
 	
 	Image image;
 	
 	public Character() {
 		
+	}
+	
+	protected void setCharacterImage(String imageString) {
+		imageAddress = imageString;
+		try {
+			image = ImageIO.read(new File(imageAddress));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	
