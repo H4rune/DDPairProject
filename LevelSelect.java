@@ -131,9 +131,13 @@ public class LevelSelect implements ActionListener{
 		map.addCharacter(player);
 		map.mainLoop();
 	}
+	
 
 	private void create2() {
-		
+		Character guard = new Guard();
+		map = new Map(500,500);
+		map.addCharacter(guard);
+		map.mainLoop();
 	}
 
 	private void create3() {

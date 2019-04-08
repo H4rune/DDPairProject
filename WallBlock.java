@@ -16,4 +16,10 @@ public class WallBlock extends Character {
 		
 	}
 
+	@Override
+	public int getAngle() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
