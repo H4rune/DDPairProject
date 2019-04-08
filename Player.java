@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 public class Player extends Character{
 	
-	String imageAddress = "C:\\Users\\harun\\Downloads\\transparentDD.png"; // Change this when back in school
+	String imageAddress = "T:\\Hello There\\transparentDD.png"; // Change this when back in school
 	
 	Player(){
 		setCharacterImage();
