@@ -10,6 +10,7 @@ import java.awt.event.*;
 
 
 public abstract class Character {
+	int cursorAngle = 0;
 	int hM = 10;
 	int vM = 10;
 	int speedMultiplier = 3;
@@ -17,13 +18,13 @@ public abstract class Character {
 	int yComponent = 50;
 	Point cursorPoint;
 	String imageAddress = "T:\\Hello There\\transparentDD.png";
-	
+
 	Image image;
-	
+
 	public Character() {
-		
+
 	}
-	
+
 	protected void setCharacterImage(String imageString) {
 		imageAddress = imageString;
 		try {
@@ -34,15 +35,15 @@ public abstract class Character {
 		}
 	}
 
-	
+
 	public Image getImage() {
 		return image;
 	}
-	
+
 	abstract public void setMovement(int dx, int dy);
-	
+
 	abstract public void updatePosition();
-	
+
 	//Returns positional data
 	public int getX() {
 		return xComponent;
@@ -56,14 +57,36 @@ public abstract class Character {
 	public void setY(int num) {
 		yComponent = num;
 	}
-	
+
 	abstract public int getAngle();
 	public void setCursorPoint(Point p) {
 		cursorPoint = p;
 	}
-	
-	public void getCursorAngle() {
+
+	public void setCursorAngle() {
+		int theAngle = 0;
+
+		int x = (int)cursorPoint.getX();
+		int y = (int)cursorPoint.getY();
+		int xLength = x - xComponent;
+		int yLength = y - yComponent;
+
+		if(xLength>=0) {
+			theAngle = (int)Math.toDegrees(Math.atan(yLength/xLength));
+		}else if (xLength<=0) {
+			theAngle = (int)Math.toDegrees(Math.atan(yLength/xLength)) + 90;
+		}else {
+			if(yLength>0) {
+				theAngle = 90;
+			}else if (yLength<0) {
+				theAngle = 270;
+			}else {
+				theAngle = 0;
+			}
+		}
+
+		cursorAngle = theAngle;
 		
 	}
-	
+
 }
