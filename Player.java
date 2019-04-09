@@ -50,8 +50,8 @@ public class Player extends Character{
 	}
 
 	@Override
-	public int getAngle() {
-		return hM;		
+	public double getAngle() {
+		return cursorAngle;		
 	}
 
 }

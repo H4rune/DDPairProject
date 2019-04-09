@@ -33,7 +33,7 @@ public class Guard extends Character {
 		
 	}
 	@Override
-	public int getAngle() {
+	public double getAngle() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

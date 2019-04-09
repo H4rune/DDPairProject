@@ -10,7 +10,7 @@ import java.awt.event.*;
 
 
 public abstract class Character {
-	int cursorAngle = 0;
+	double cursorAngle = 0;
 	int hM = 10;
 	int vM = 10;
 	int speedMultiplier = 3;
@@ -58,34 +58,37 @@ public abstract class Character {
 		yComponent = num;
 	}
 
-	abstract public int getAngle();
+	abstract public double getAngle();
 	public void setCursorPoint(Point p) {
 		cursorPoint = p;
 	}
 
 	public void setCursorAngle() {
-		int theAngle = 0;
+		double theAngle = 0;
 
 		int x = (int)cursorPoint.getX();
 		int y = (int)cursorPoint.getY();
 		int xLength = x - xComponent;
 		int yLength = y - yComponent;
 
-		if(xLength>=0) {
-			theAngle = (int)Math.toDegrees(Math.atan(yLength/xLength));
-		}else if (xLength<=0) {
-			theAngle = (int)Math.toDegrees(Math.atan(yLength/xLength)) + 90;
-		}else {
+		if(xLength>=0 ||xLength<=0) {
+			theAngle = Math.toDegrees(Math.atan(yLength/xLength));
+		}/*else if (xLength<=0) {
+			theAngle = Math.toDegrees(Math.atan(yLength/xLength)) + 90;
+		}*/else {
 			if(yLength>0) {
-				theAngle = 90;
+				theAngle = Math.PI / 2;
 			}else if (yLength<0) {
-				theAngle = 270;
+				theAngle = 3 * Math.PI / 2;
 			}else {
 				theAngle = 0;
 			}
 		}
 
 		cursorAngle = theAngle;
+		System.out.println("CursorPoint:("+x+","+y+")");
+		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
+		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
 		
 	}
 
