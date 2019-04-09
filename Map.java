@@ -74,6 +74,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			
 			cursor = MouseInfo.getPointerInfo().getLocation();
 			character.setCursorPoint(cursor);
+			character.setCursorAngle();
 			character.updatePosition();
 			
 
@@ -81,8 +82,12 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			int yPos = character.getY();
 			
 			Image image = character.getImage();
-
+			
+			int angle = character.getAngle();
+			
+			g2.rotate(angle, xPos, yPos);
 			g.drawImage(image, xPos, yPos, null);
+			g2.rotate(angle, xPos, yPos);
 		}
 
 	}
