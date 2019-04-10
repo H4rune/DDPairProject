@@ -89,7 +89,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			
 //			g2.rotate(angle, xPos, yPos);
 			g.drawImage(image, xPos, yPos, null);
-			//g2.rotate(angle, xPos, yPos);
+			
 		}
 
 	}

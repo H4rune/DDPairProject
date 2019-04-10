@@ -23,8 +23,8 @@ public class Guard extends Character {
 	@Override
 	public void updatePosition() {
 	
-		xComponent += 5;
-		yComponent += 5;
+//		xComponent += 5;
+//		yComponent += 5;
 		
 	}
 	@Override
