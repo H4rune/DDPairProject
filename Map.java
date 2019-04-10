@@ -87,7 +87,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			
 			double angle = character.getAngle();
 			
-			g2.rotate(angle, xPos, yPos);
+//			g2.rotate(angle, xPos, yPos);
 			g.drawImage(image, xPos, yPos, null);
 			//g2.rotate(angle, xPos, yPos);
 		}
