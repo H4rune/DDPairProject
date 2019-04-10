@@ -71,8 +71,10 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 		for(Character character:characters) {
 			character.setMovement(dx, dy);
-			
+			Point framePoint = frame.getLocation();
 			cursor = MouseInfo.getPointerInfo().getLocation();
+			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
+			cursor.translate(0, 40);
 			character.setCursorPoint(cursor);
 			character.setCursorAngle();
 			character.updatePosition();
