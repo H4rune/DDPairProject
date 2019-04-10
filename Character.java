@@ -29,6 +29,7 @@ public abstract class Character {
 		imageAddress = imageString;
 		try {
 			image = ImageIO.read(new File(imageAddress));
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
