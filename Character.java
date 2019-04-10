@@ -71,11 +71,19 @@ public abstract class Character {
 		int xLength = x - xComponent;
 		int yLength = y - yComponent;
 
-		if(xLength>=0 ||xLength<=0) {
-			theAngle = Math.toDegrees(Math.atan(yLength/xLength));
-		}/*else if (xLength<=0) {
-			theAngle = Math.toDegrees(Math.atan(yLength/xLength)) + 90;
-		}*/else {
+		if(xLength>0 && yLength>0) {
+			theAngle = Math.atan(yLength/xLength); 
+		}
+		
+		else if(xLength>0 && yLength<0) {
+			theAngle = Math.atan(yLength/xLength) + 2 * Math.PI; 
+		}
+		
+		else if(xLength<0) {
+			theAngle = Math.atan(yLength/xLength) + Math.PI; 
+		}
+		
+		else {
 			if(yLength>0) {
 				theAngle = Math.PI / 2;
 			}else if (yLength<0) {
