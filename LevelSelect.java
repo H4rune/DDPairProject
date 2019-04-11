@@ -11,7 +11,7 @@ import java.awt.event.*;
 
 public class LevelSelect implements ActionListener{
 	String playerAddress = "T:\\Hello There\\transparentDD.png";
-	String guardAddress = "T:\\Hello There\\guardSprite.png";
+	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
 	JFrame frame = new JFrame();
 	JPanel contentPane = new JPanel();
 	JButton level1 = new JButton();
@@ -135,7 +135,7 @@ public class LevelSelect implements ActionListener{
 	
 
 	private void create2() {
-		Character guard = new Guard(guardAddress);
+		Character guard = new EasyGuard(easyGuardAddress);
 		map = new Map(500,500);
 		map.addCharacter(guard);
 		map.mainLoop();
