@@ -74,7 +74,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			Point framePoint = frame.getLocation();
 			cursor = MouseInfo.getPointerInfo().getLocation();
 			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
-			cursor.translate(0, 40);
+			cursor.translate(-5, -30);
 			character.setCursorPoint(cursor);
 			character.setCursorAngle();
 			character.updatePosition();
@@ -87,7 +87,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			
 			double angle = character.getAngle();
 			
-//			g2.rotate(angle, xPos, yPos);
+			g2.rotate(angle, xPos, yPos);
 			g.drawImage(image, xPos, yPos, null);
 			
 		}
@@ -106,7 +106,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		boolean loop = true;
 		long lastLoopTime = System.nanoTime();
-		final int TARGET_FPS = 30;
+		final int TARGET_FPS = 60;
 		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
 		long fps = 0;
 		long lastFpsTime = 0;

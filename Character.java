@@ -66,22 +66,26 @@ public abstract class Character {
 
 	public void setCursorAngle() {
 		double theAngle = 0;
-//
-//		int x = (int)cursorPoint.getX();
-//		int y = (int)cursorPoint.getY();
-//		int xLength = x - xComponent;
-//		int yLength = y - yComponent;
-//
+		
+		
+
+		int x = (int)cursorPoint.getX();
+		int y = (int)cursorPoint.getY();
+		int xLength = x - xComponent;
+		int yLength = y - yComponent;
+		
+		
+
 //		if(xLength>0 && yLength>0) {
-//			theAngle = Math.atan(yLength/xLength); 
+//			theAngle = Math.atan2(yLength,xLength); 
 //		}
 //		
 //		else if(xLength>0 && yLength<0) {
-//			theAngle = Math.atan(yLength/xLength) + 2 * Math.PI; 
+//			theAngle = Math.atan2(yLength,xLength) /*+ 2 * Math.PI*/; 
 //		}
 //		
 //		else if(xLength<0) {
-//			theAngle = Math.atan(yLength/xLength) + Math.PI; 
+//			theAngle = Math.atan2(yLength,xLength) /*+ Math.PI*/; 
 //		}
 //		
 //		else {
@@ -96,6 +100,7 @@ public abstract class Character {
 //		System.out.println("CursorPoint:("+x+","+y+")");
 //		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
 //		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
+		
 		
 		cursorAngle = theAngle;
 
