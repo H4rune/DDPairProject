@@ -89,10 +89,24 @@ public class Player extends Character{
 
 
 		cursorAngle = theAngle;
-		System.out.println("CursorPoint:("+x+","+y+")");
-		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
-		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
+//		System.out.println("CursorPoint:("+x+","+y+")");
+//		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
+//		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
 		
+	}
+
+
+
+
+
+	@Override
+	public int getXOffset() {
+		// TODO Auto-generated method stub
+		return 32;
+	}
+	public int getYOffset() {
+		// TODO Auto-generated method stub
+		return 32;
 	}
 
 }

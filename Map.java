@@ -79,15 +79,20 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			character.setCursorAngle();
 			character.updatePosition();
 			
+			//Coordinates of the center of the image
+			int xCenter = character.getX();
+			int yCenter = character.getY();
 			
-			int xPos = character.getX();
-			int yPos = character.getY();
+			//Coordinates of the top left of the image
+			//uses offset to make it look like it is rotating about its center
+			int xPos = xCenter - character.getXOffset();
+			int yPos = yCenter - character.getYOffset();
 			
 			Image image = character.getImage();
 			
 			double angle = character.getAngle();
 			
-			g2.rotate(angle, xPos, yPos);
+			g2.rotate(angle, xCenter, yCenter);
 			g.drawImage(image, xPos, yPos, null);
 			
 		}

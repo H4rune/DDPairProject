@@ -107,4 +107,11 @@ public abstract class Character {
 		
 	}
 
+	public int getXOffset() {
+		return 0;
+	}
+	public int getYOffset() {
+		return 0;
+	}
+
 }
