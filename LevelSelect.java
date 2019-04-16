@@ -10,10 +10,15 @@ import java.util.ArrayList;
 import java.awt.event.*;
 
 public class LevelSelect implements ActionListener{
-	String playerAddress = "T:\\Hello There\\transparentDD.png";
-	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
+	//School
+//	String playerAddress = "T:\\Hello There\\transparentDD.png";
+//	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
+	//Anudeep
 //	String playerAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\transparentDD.png";
 //	String easyGuardAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\easyGuard.png";
+	//Harun
+	String playerAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
+	String easyGuardAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
 	JFrame frame = new JFrame();
 	JPanel contentPane = new JPanel();
 	JButton level1 = new JButton();
