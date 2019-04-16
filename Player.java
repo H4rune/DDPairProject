@@ -62,6 +62,8 @@ public class Player extends Character{
 		int yLength = y - yComponent;
 
 		float angle = (float) Math.toDegrees(Math.atan2(yLength, xLength));
+		theAngle = Math.toRadians(angle);
+		
 		
 //		if(xLength>0 && yLength>0) {
 //			theAngle = Math.atan(yLength/xLength); 
@@ -84,12 +86,12 @@ public class Player extends Character{
 //				theAngle = 0;
 //			}
 //		}
-//		theAngle = Math.toRadians(angle);
+
 
 		cursorAngle = theAngle;
-//		System.out.println("CursorPoint:("+x+","+y+")");
-//		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
-//		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
+		System.out.println("CursorPoint:("+x+","+y+")");
+		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
+		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
 		
 	}
 
