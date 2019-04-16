@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,13 +19,24 @@ public abstract class Character {
 	int yComponent = 50;
 	Point cursorPoint;
 	String imageAddress = "T:\\Hello There\\transparentDD.png";
-
 	Image image;
+	Rectangle hitbox = new Rectangle();
 
 	public Character() {
 
 	}
-
+	public Rectangle getHitbox() {
+		return hitbox;
+	}
+	public void setHitbox(Rectangle r) {
+		hitbox = new Rectangle(r);
+	}
+	public void setHitbox(int x, int y, int width, int height) {
+		hitbox = new Rectangle(x,y,width,height);
+	}
+	public void moveHitbox(int dx, int dy) {
+		hitbox.translate(dx, dy);
+	}
 	protected void setCharacterImage(String imageString) {
 		imageAddress = imageString;
 		try {
@@ -35,7 +47,6 @@ public abstract class Character {
 			e.printStackTrace();
 		}
 	}
-
 
 	public Image getImage() {
 		return image;
@@ -112,6 +123,12 @@ public abstract class Character {
 	}
 	public int getYOffset() {
 		return 0;
+	}
+	public int getWidth() {
+		return image.getWidth(null);
+	}
+	public int getHeight() {
+		return image.getHeight(null);
 	}
 
 }

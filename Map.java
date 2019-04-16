@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Paint;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 	JFrame frame;
 	ArrayList<Character> characters;
+	ArrayList<Rectangle> hitboxes;
 	boolean loop;
 	boolean closing;
 	Map singleton;
@@ -26,6 +28,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	int dx = 0;
 	int dy = 0;
 	Point cursor;
+	Rectangle hitbox;
 	
 	
 
@@ -65,11 +68,19 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-//		System.out.println("goes herer");
+//		System.out.println("goes here");
 		
 		Graphics2D g2= (Graphics2D) g;
+		
+		
+		
 
 		for(Character character:characters) {
+			//Calculated hitbox stuff here
+			
+			
+			
+			//Calculating image movement below
 			character.setMovement(dx, dy);
 			Point framePoint = frame.getLocation();
 			cursor = MouseInfo.getPointerInfo().getLocation();
@@ -94,7 +105,10 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			
 			g2.rotate(angle, xCenter, yCenter);
 			g.drawImage(image, xPos, yPos, null);
+			g2.rotate(-angle, xCenter, yCenter);
 			
+			//resetting hitbox to proper location
+			character.setHitbox(character.getX(), character.getY(), character.getWidth(), character.getHeight());
 		}
 
 	}
@@ -111,7 +125,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		boolean loop = true;
 		long lastLoopTime = System.nanoTime();
-		final int TARGET_FPS = 60;
+		final int TARGET_FPS = 30;
 		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
 		long fps = 0;
 		long lastFpsTime = 0;
@@ -170,19 +184,19 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		int buttonPressed = e.getKeyCode();
 
-        if (buttonPressed == KeyEvent.VK_LEFT) {
+        if (buttonPressed == KeyEvent.VK_LEFT || buttonPressed == KeyEvent.VK_A) {
             dx = -1;
         }
 
-        if (buttonPressed == KeyEvent.VK_RIGHT) {
+        if (buttonPressed == KeyEvent.VK_RIGHT || buttonPressed == KeyEvent.VK_D) {
         	dx = 1;
         }
 
-        if (buttonPressed == KeyEvent.VK_UP) {
+        if (buttonPressed == KeyEvent.VK_UP || buttonPressed == KeyEvent.VK_W) {
         	dy = -1;
         }
 
-        if (buttonPressed == KeyEvent.VK_DOWN) {
+        if (buttonPressed == KeyEvent.VK_DOWN || buttonPressed == KeyEvent.VK_S) {
         	dy = 1;
         }
 	}
@@ -192,19 +206,19 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		int buttonPressed = e.getKeyCode();
 
-        if (buttonPressed == KeyEvent.VK_LEFT) {
+        if (buttonPressed == KeyEvent.VK_LEFT || buttonPressed == KeyEvent.VK_A) {
             dx = 0;
         }
 
-        if (buttonPressed == KeyEvent.VK_RIGHT) {
+        if (buttonPressed == KeyEvent.VK_RIGHT || buttonPressed == KeyEvent.VK_D) {
         	dx = 0;
         }
 
-        if (buttonPressed == KeyEvent.VK_UP) {
+        if (buttonPressed == KeyEvent.VK_UP || buttonPressed == KeyEvent.VK_W) {
         	dy = 0;
         }
 
-        if (buttonPressed == KeyEvent.VK_DOWN) {
+        if (buttonPressed == KeyEvent.VK_DOWN || buttonPressed == KeyEvent.VK_S) {
         	dy = 0;
         }
        

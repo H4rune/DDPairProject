@@ -149,7 +149,12 @@ public class LevelSelect implements ActionListener{
 	}
 
 	private void create3() {
-		
+		Character player = new Player(playerAddress);
+		Character block = new WallBlock(playerAddress);
+		map = new Map(500,500);
+		map.addCharacter(player);
+		map.addCharacter(block);
+		map.mainLoop();
 	}
 
 	private void create4() {

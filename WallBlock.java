@@ -1,5 +1,11 @@
 
 public class WallBlock extends Character {
+	
+	WallBlock(String imageFilePath){
+		imageAddress = imageFilePath;
+		setCharacterImage(imageAddress);
+	}
+	
 	public void setCollisionReaction() {
 		
 	}
@@ -7,7 +13,8 @@ public class WallBlock extends Character {
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-		
+		xComponent = 200;
+		yComponent = 200;
 	}
 
 	@Override
