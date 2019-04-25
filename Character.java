@@ -69,6 +69,7 @@ public abstract class Character {
 	public void setY(int num) {
 		yComponent = num;
 	}
+	public abstract void updateHitbox();
 
 	abstract public double getAngle();
 	public void setCursorPoint(Point p) {

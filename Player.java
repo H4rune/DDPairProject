@@ -109,4 +109,14 @@ public class Player extends Character{
 		return 32;
 	}
 
+
+
+
+
+	@Override
+	public void updateHitbox() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

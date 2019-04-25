@@ -18,4 +18,10 @@ public class EasyGuard extends Guard{
 		
 	}
 
+	@Override
+	public void updateHitbox() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

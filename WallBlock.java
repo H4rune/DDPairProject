@@ -29,4 +29,10 @@ public class WallBlock extends Character {
 		return 0;
 	}
 
+	@Override
+	public void updateHitbox() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

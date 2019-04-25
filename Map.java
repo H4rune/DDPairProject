@@ -76,12 +76,14 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		
 
 		for(Character character:characters) {
+			//Reset Hitbox
+			character.setHitbox(character.getX(), character.getY(), character.getWidth(), character.getHeight());
+			character.setMovement(dx, dy); //feeds keyboard info to character
 			//Calculated hitbox stuff here
-			
+			character.updateHitbox();
 			
 			
 			//Calculating image movement below
-			character.setMovement(dx, dy);
 			Point framePoint = frame.getLocation();
 			cursor = MouseInfo.getPointerInfo().getLocation();
 			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
