@@ -11,14 +11,15 @@ import java.awt.event.*;
 
 public class LevelSelect implements ActionListener{
 	//School
-//	String playerAddress = "T:\\Hello There\\transparentDD.png";
-//	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
+	String playerAddress = "T:\\Hello There\\transparentDD.png";
+	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
+	String wallBlockAddress = "T:\\Hello There\\wallSprite.png";
 	//Anudeep
 //	String playerAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\transparentDD.png";
 //	String easyGuardAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\easyGuard.png";
 	//Harun
-	String playerAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
-	String easyGuardAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
+//	String playerAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
+//	String easyGuardAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
 	JFrame frame = new JFrame();
 	JPanel contentPane = new JPanel();
 	JButton level1 = new JButton();
@@ -150,7 +151,7 @@ public class LevelSelect implements ActionListener{
 
 	private void create3() {
 		Character player = new Player(playerAddress);
-		Character block = new WallBlock(playerAddress);
+		Character block = new WallBlock(wallBlockAddress);
 		map = new Map(500,500);
 		map.addCharacter(player);
 		map.addCharacter(block);
