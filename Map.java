@@ -28,7 +28,6 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	int dx = 0;
 	int dy = 0;
 	Point cursor;
-	Rectangle hitbox;
 	
 	
 
@@ -71,8 +70,10 @@ public class Map extends JPanel implements Runnable, KeyListener{
 //		System.out.println("goes here");
 		
 		Graphics2D g2= (Graphics2D) g;
-		
-		
+		ArrayList<Rectangle> hitboxes = new ArrayList<Rectangle>();
+		for(Character character:characters) {
+			
+		}
 		
 
 		for(Character character:characters) {
@@ -81,8 +82,51 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			character.setMovement(dx, dy); //feeds keyboard info to character
 			//Calculated hitbox stuff here
 			character.updateHitbox();
+			hitboxes.clear();
+			for(Character character2:characters) {
+				if (!character.equals(character2)) {
+					hitboxes.add(character2.getHitbox());
+				}
+			}
+			Rectangle hitbox;
+			hitbox = character.getHitbox();
+			boolean collision = false;
+			//Checks current hitbox against every other hitbox
+			for(Rectangle box: hitboxes) {
+				if(box.intersects(hitbox)) {
+					collision = true;
+				}
+			}
 			
-			
+			if(!collision) {
+//				System.out.println("hi");
+				//Calculating image movement below
+				Point framePoint = frame.getLocation();
+				cursor = MouseInfo.getPointerInfo().getLocation();
+				cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
+				cursor.translate(-5, -30);
+				character.setCursorPoint(cursor);
+				character.setCursorAngle();
+				character.updatePosition();
+				
+				//Coordinates of the center of the image
+				int xCenter = character.getX();
+				int yCenter = character.getY();
+				
+				//Coordinates of the top left of the image
+				//uses offset to make it look like it is rotating about its center
+				int xPos = xCenter - character.getXOffset();
+				int yPos = yCenter - character.getYOffset();
+				
+				Image image = character.getImage();
+				
+				double angle = character.getAngle();
+				
+				g2.rotate(angle, xCenter, yCenter);
+				g.drawImage(image, xPos, yPos, null);
+				g2.rotate(-angle, xCenter, yCenter);
+				
+			}
 			//Calculating image movement below
 			Point framePoint = frame.getLocation();
 			cursor = MouseInfo.getPointerInfo().getLocation();
@@ -110,7 +154,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			g2.rotate(-angle, xCenter, yCenter);
 			
 			//resetting hitbox to proper location
-			character.setHitbox(character.getX(), character.getY(), character.getWidth(), character.getHeight());
+			character.setHitbox(xPos, yPos, character.getWidth(), character.getHeight());
 		}
 
 	}

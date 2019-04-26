@@ -120,10 +120,10 @@ public abstract class Character {
 	}
 
 	public int getXOffset() {
-		return 0;
+		return 32;
 	}
 	public int getYOffset() {
-		return 0;
+		return 32;
 	}
 	public int getWidth() {
 		return image.getWidth(null);
