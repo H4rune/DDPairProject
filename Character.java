@@ -32,7 +32,7 @@ public abstract class Character {
 		hitbox = new Rectangle(r);
 	}
 	public void setHitbox(int x, int y, int width, int height) {
-		hitbox = new Rectangle(x,y,width,height);
+		hitbox = new Rectangle(x-getXOffset(),y-getXOffset(),width,height);
 	}
 	public void moveHitbox(int dx, int dy) {
 		hitbox.translate(dx, dy);

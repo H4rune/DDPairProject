@@ -126,6 +126,8 @@ public class Map extends JPanel implements Runnable, KeyListener{
 				g.drawImage(image, xPos, yPos, null);
 				g2.rotate(-angle, xCenter, yCenter);
 				
+				//
+				g.drawRect(character.getHitbox().x, character.getHitbox().y, character.getHitbox().width, character.getHitbox().height);
 			}
 			//Calculating image movement below
 			Point framePoint = frame.getLocation();
