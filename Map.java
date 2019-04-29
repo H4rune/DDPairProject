@@ -94,10 +94,11 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			//Checks current hitbox against every other hitbox
 			for(Rectangle box: hitboxes) {
 				if(box.intersects(hitbox)) {
+					System.out.println(collision);
 					collision = true;
 				}
 			}
-			
+			System.out.println(collision);
 			if(!collision) {
 //				System.out.println("hi");
 				//Calculating image movement below
@@ -129,31 +130,31 @@ public class Map extends JPanel implements Runnable, KeyListener{
 				//
 				g.drawRect(character.getHitbox().x, character.getHitbox().y, character.getHitbox().width, character.getHitbox().height);
 			}
-			//Calculating image movement below
-			Point framePoint = frame.getLocation();
-			cursor = MouseInfo.getPointerInfo().getLocation();
-			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
-			cursor.translate(-5, -30);
-			character.setCursorPoint(cursor);
-			character.setCursorAngle();
-			character.updatePosition();
-			
-			//Coordinates of the center of the image
+//			//Calculating image movement below
+//			Point framePoint = frame.getLocation();
+//			cursor = MouseInfo.getPointerInfo().getLocation();
+//			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
+//			cursor.translate(-5, -30);
+//			character.setCursorPoint(cursor);
+//			character.setCursorAngle();
+//			character.updatePosition();
+//			
+//			//Coordinates of the center of the image
 			int xCenter = character.getX();
 			int yCenter = character.getY();
-			
-			//Coordinates of the top left of the image
-			//uses offset to make it look like it is rotating about its center
+//			
+//			//Coordinates of the top left of the image
+//			//uses offset to make it look like it is rotating about its center
 			int xPos = xCenter - character.getXOffset();
 			int yPos = yCenter - character.getYOffset();
-			
-			Image image = character.getImage();
-			
-			double angle = character.getAngle();
-			
-			g2.rotate(angle, xCenter, yCenter);
-			g.drawImage(image, xPos, yPos, null);
-			g2.rotate(-angle, xCenter, yCenter);
+//			
+//			Image image = character.getImage();
+//			
+//			double angle = character.getAngle();
+//			
+//			g2.rotate(angle, xCenter, yCenter);
+//			g.drawImage(image, xPos, yPos, null);
+//			g2.rotate(-angle, xCenter, yCenter);
 			
 			//resetting hitbox to proper location
 			character.setHitbox(xPos, yPos, character.getWidth(), character.getHeight());
