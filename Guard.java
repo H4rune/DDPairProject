@@ -2,7 +2,7 @@ public class Guard extends Character {
 	int lastIndexReached;
 	int index;
 	String facingDirection = "";// "up" "down" "left" "right"
-	int[][] Coordinates /*= {{2,2},{2,2}}*/;
+	
 
 	String imageAddress = "";
 
@@ -108,33 +108,7 @@ public class Guard extends Character {
 		}
 	}
 
-	public void setGuardPath(int[][]points) {
-//		int xC = 0;
-//		int yC = 1;
-//		int xComponent = this.getX();
-//		int yComponent = this.getY();
-
-		Coordinates = points;
-		//		for(int i = 0; i<Coordinates.length; i++) {
-//		if(xComponent < Coordinates[index][xC]) {
-//			xComponent += hM/10;
-//			String FacingDirection = "right";
-//		}	
-//		if(xComponent > Coordinates[index][xC]) {
-//			xComponent -= hM/10;
-//			String FacingDirection = "left";
-//		}	
-//		if(yComponent < Coordinates[index][yC]) {
-//			yComponent += vM/10;
-//			String FacingDirection = "up";
-//		}
-//		if(yComponent > Coordinates[index][yC]) {
-//			yComponent -= vM/10;
-//			String FacingDirection = "down";
-//		}
-		//		}
-
-	}
+	
 
 	//	private void setFacingDirection() {
 	//		if(this.cursorAngle< Math.PI/2 && this.cursorAngle< Math.PI/2) {
