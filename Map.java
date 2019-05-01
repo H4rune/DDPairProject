@@ -57,7 +57,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	public void updateMap() {//Does not call paintComponent
 		Graphics g = singleton.getGraphics();
 		singleton.paint(g);
-		frame.setVisible(true);
+//		frame.setVisible(true);
 		
 	}
 
@@ -94,7 +94,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			//Checks current hitbox against every other hitbox
 			for(Rectangle box: hitboxes) {
 				if(box.intersects(hitbox)) {
-					System.out.println(collision);
+//					System.out.println(collision);
 					collision = true;
 				}
 			}
