@@ -119,33 +119,7 @@ public abstract class Character {
 
 		
 	}
-	public void setPath(int[][]points) {
-//		int xC = 0;
-//		int yC = 1;
-//		int xComponent = this.getX();
-//		int yComponent = this.getY();
-
-		Coordinates = points;
-		//		for(int i = 0; i<Coordinates.length; i++) {
-//		if(xComponent < Coordinates[index][xC]) {
-//			xComponent += hM/10;
-//			String FacingDirection = "right";
-//		}	
-//		if(xComponent > Coordinates[index][xC]) {
-//			xComponent -= hM/10;
-//			String FacingDirection = "left";
-//		}	
-//		if(yComponent < Coordinates[index][yC]) {
-//			yComponent += vM/10;
-//			String FacingDirection = "up";
-//		}
-//		if(yComponent > Coordinates[index][yC]) {
-//			yComponent -= vM/10;
-//			String FacingDirection = "down";
-//		}
-		//		}
-
-	}
+	
 	public int getXOffset() {
 		return 32;
 	}

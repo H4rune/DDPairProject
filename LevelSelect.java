@@ -144,7 +144,8 @@ public class LevelSelect implements ActionListener{
 
 	private void create2() {
 		Character guard = new Guard(easyGuardAddress);
-		guard.setPath({{100,100},{150,100},{150,150},{100,150}});
+		int[][] lmao = {{100,100},{150,100},{150,150},{100,150}};
+		guard.setPath(lmao);
 		map = new Map(500,500);
 		map.addCharacter(guard);
 		map.mainLoop();
