@@ -132,5 +132,6 @@ public abstract class Character {
 	public int getHeight() {
 		return image.getHeight(null);
 	}
+	
 
 }
