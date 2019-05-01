@@ -32,7 +32,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	
 
 	public void setBackground() {
-
+		
 	}
 
 	Map(int width, int height){
@@ -56,7 +56,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	//Call this to call the bottom paintComponent class code and update the map
 	public void updateMap() {//Does not call paintComponent
 		Graphics g = singleton.getGraphics();
-		singleton.paint(g);
+		singleton.paintComponent(g);
 //		frame.setVisible(true);
 		
 	}
@@ -98,7 +98,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 					collision = true;
 				}
 			}
-			System.out.println(collision);
+//			System.out.println(collision);
 			if(!collision) {
 //				System.out.println("hi");
 				//Calculating image movement below
@@ -185,13 +185,19 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		      // work out how long its been since the last update, this
 		      // will be used to calculate how far the entities should
 		      // move this loop
-		      long now = System.nanoTime();
-		      long updateLength = now - lastLoopTime;
-		      lastLoopTime = now;
-		      double delta = updateLength / ((double)OPTIMAL_TIME);
-
+		      long st = System.nanoTime();
+		      
+		      try {
+		    	  updateMap();
+		      }
+		      catch(Exception e) {
+		    	  thread.stop();
+		      }
+		      
+		      
+		      while ((System.nanoTime() - st) < 1_000_000_000 / TARGET_FPS);
+		      
 		      // update the frame counter
-		      lastFpsTime += updateLength;
 		      fps++;
 		      
 		      // update our FPS counter if a second has passed since
@@ -203,28 +209,6 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		         fps = 0;
 		      }
 		      
-		      
-		      
-		      
-		      try {
-		    	  updateMap();
-		      }
-		      catch(Exception e) {
-//		    	  System.out.println("LOLOLOLOLOL");
-//		    	  thread.interrupt();
-		    	  thread.stop();
-//		    	  thread.destroy();
-		      }
-		      
-		      // we want each frame to take 10 milliseconds, to do this
-		      // we've recorded when we started the frame. We add 10 milliseconds
-		      // to this and then factor in the current time to give 
-		      // us our final value to wait for
-		      // remember this is in ms, whereas our lastLoopTime etc. vars are in ns.
-		      try{Thread.sleep( (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000 );}
-		      catch(Exception e) {
-		    	  
-		      }
 		   }
 		}
 

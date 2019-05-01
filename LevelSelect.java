@@ -97,7 +97,7 @@ public class LevelSelect implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		frame.setVisible(false);
+//		frame.setVisible(false);
 		if(e.getActionCommand().equals("1")) {
 			create1();
 		}
@@ -129,7 +129,7 @@ public class LevelSelect implements ActionListener{
 			create10();
 		}
 		
-		frame.setVisible(true);
+//		frame.setVisible(true);
 	}
 	
 	
