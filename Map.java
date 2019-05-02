@@ -77,77 +77,56 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		
 
 		for(Character character:characters) {
-			//Reset Hitbox
-			character.setHitbox(character.getX(), character.getY(), character.getWidth(), character.getHeight());
-			character.setMovement(dx, dy); //feeds keyboard info to character
-			//Calculated hitbox stuff here
-			character.updateHitbox();
-			hitboxes.clear();
-			for(Character character2:characters) {
-				if (!character.equals(character2)) {
-					hitboxes.add(character2.getHitbox());
-				}
-			}
-			Rectangle hitbox;
-			hitbox = character.getHitbox();
-			boolean collision = false;
-			//Checks current hitbox against every other hitbox
-			for(Rectangle box: hitboxes) {
-				if(box.intersects(hitbox)) {
-//					System.out.println(collision);
-					collision = true;
-				}
-			}
-//			System.out.println(collision);
-			if(!collision) {
-//				System.out.println("hi");
-				//Calculating image movement below
-				Point framePoint = frame.getLocation();
-				cursor = MouseInfo.getPointerInfo().getLocation();
-				cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
-				cursor.translate(-5, -30);
-				character.setCursorPoint(cursor);
-				character.setCursorAngle();
-				character.updatePosition();
-				
-				//Coordinates of the center of the image
-				int xCenter = character.getX();
-				int yCenter = character.getY();
-				
-				//Coordinates of the top left of the image
-				//uses offset to make it look like it is rotating about its center
-				int xPos = xCenter - character.getXOffset();
-				int yPos = yCenter - character.getYOffset();
-				
-				Image image = character.getImage();
-				
-				double angle = character.getAngle();
-				
-				g2.rotate(angle, xCenter, yCenter);
-				g.drawImage(image, xPos, yPos, null);
-				g2.rotate(-angle, xCenter, yCenter);
-				
-				//
-				g.drawRect(character.getHitbox().x, character.getHitbox().y, character.getHitbox().width, character.getHitbox().height);
-			}
-//			//Calculating image movement below
-//			Point framePoint = frame.getLocation();
-//			cursor = MouseInfo.getPointerInfo().getLocation();
-//			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
-//			cursor.translate(-5, -30);
-//			character.setCursorPoint(cursor);
-//			character.setCursorAngle();
-//			character.updatePosition();
-//			
-//			//Coordinates of the center of the image
+			
+			//Calculating image movement below
+			character.setMovement(dx, dy);
+			Point framePoint = frame.getLocation();
+			cursor = MouseInfo.getPointerInfo().getLocation();
+			cursor.translate(-(int)framePoint.getX(), -(int)framePoint.getY());;
+			cursor.translate(-5, -30);
+			character.setCursorPoint(cursor);
+			character.setCursorAngle();
+			character.updatePosition();
+			
+			//Coordinates of the center of the image
 			int xCenter = character.getX();
 			int yCenter = character.getY();
-//			
-//			//Coordinates of the top left of the image
-//			//uses offset to make it look like it is rotating about its center
+			
+			//Coordinates of the top left of the image
+			//uses offset to make it look like it is rotating about its center
 			int xPos = xCenter - character.getXOffset();
 			int yPos = yCenter - character.getYOffset();
-//			
+			
+			
+			
+			//Calculate and draw hitbox before actual image
+			character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
+			g.drawRect((int)character.getHitbox().getX(), (int)character.getHitbox().getY(), (int)character.getHitbox().getWidth(), (int)character.getHitbox().getHeight());
+			
+			hitboxes.clear();
+			for(Character CBox:characters) {
+				if(!character.hitbox.equals(CBox.getHitbox())) {
+					hitboxes.add(CBox.getHitbox());
+				}
+			}
+			for(Rectangle hitbox : hitboxes) {
+				if(hitbox.intersects(character.getHitbox())) {
+					
+				}
+				else {
+					//Draw image
+					Image image = character.getImage();
+					
+					double angle = character.getAngle();
+					
+					g2.rotate(angle, xCenter, yCenter);
+					g.drawImage(image, xPos, yPos, null);
+					g2.rotate(-angle, xCenter, yCenter);
+				}
+			}
+			
+			
+//			//Draw image
 //			Image image = character.getImage();
 //			
 //			double angle = character.getAngle();
@@ -155,9 +134,6 @@ public class Map extends JPanel implements Runnable, KeyListener{
 //			g2.rotate(angle, xCenter, yCenter);
 //			g.drawImage(image, xPos, yPos, null);
 //			g2.rotate(-angle, xCenter, yCenter);
-			
-			//resetting hitbox to proper location
-			character.setHitbox(xPos, yPos, character.getWidth(), character.getHeight());
 		}
 
 	}
@@ -174,7 +150,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		boolean loop = true;
 		long lastLoopTime = System.nanoTime();
-		final int TARGET_FPS = 30;
+		final int TARGET_FPS = 60;
 		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
 		long fps = 0;
 		long lastFpsTime = 0;
@@ -202,7 +178,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		      
 		      // update our FPS counter if a second has passed since
 		      // we last recorded
-		      if (lastFpsTime >= 1000000000)
+		      if ((System.nanoTime() - st) >= 1000000000)
 		      {
 		         System.out.println("(FPS: "+fps+")");
 		         lastFpsTime = 0;
