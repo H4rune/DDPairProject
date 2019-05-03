@@ -144,7 +144,8 @@ public class LevelSelect implements ActionListener{
 
 	private void create2() {
 		Character guard = new Guard(easyGuardAddress);
-		int[][] lmao = {{100,100},{150,100},{150,150},{100,150}};
+		((Guard) guard).setStartingPoint(100, 100);;
+		int[][] lmao = {{100,100},{200,100},{100,100},{300,100},{300,400},{350,400},{350,420},{100,420},{100,400}};
 		((Guard) guard).setPath(lmao);
 		map = new Map(500,500);
 		map.addCharacter(guard);
@@ -160,8 +161,17 @@ public class LevelSelect implements ActionListener{
 		map.mainLoop();
 	}
 
-	private void create4() {
-		
+	private void create4() {//test player and also the guard in this one
+		Character guard = new Guard(easyGuardAddress);
+		((Guard) guard).setStartingPoint(100, 100);;
+		int[][] lmao = {{100,100},{200,100},{100,100},{300,100},{300,400},{350,400},{350,420},{100,420},{100,400}};
+		((Guard) guard).setPath(lmao);
+		map = new Map(500,500);
+		map.addCharacter(guard);
+		map.mainLoop();
+		Character player = new Player(playerAddress);
+		map.addCharacter(player);
+
 	}
 
 	private void create5() {

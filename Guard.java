@@ -1,5 +1,6 @@
 public class Guard extends Character {
 	int lastIndexReached;
+	int IndexToReach;
 	int index;
 	String facingDirection = "";// "up" "down" "left" "right"
 	
@@ -27,46 +28,47 @@ public class Guard extends Character {
 		//		if(x = 2) {
 		//			
 		//		}
-
+//		IndexToReach = lastIndexReached+1;
 		
 		if(xComponent == Coordinates[lastIndexReached+1][0] && yComponent == Coordinates[lastIndexReached+1][1]) {
-			if(lastIndexReached == (Coordinates.length - 2)) {
-				lastIndexReached = 0;
+			if(lastIndexReached == Coordinates.length-2) {
+				lastIndexReached = -1;
 			} else {
 				lastIndexReached++;
 			}
 		}
-		if(Coordinates[lastIndexReached][0] == xComponent) {
-			if(Coordinates[lastIndexReached][1] > yComponent) {
+		if(Coordinates[lastIndexReached+1][0] == xComponent) {
+			if(Coordinates[lastIndexReached+1][1] > yComponent) {
 				facingDirection = "down" ;
 			}
-			if(Coordinates[lastIndexReached][1] < yComponent) {
+			if(Coordinates[lastIndexReached+1][1] < yComponent) {
 				facingDirection = "up" ;
+				System.out.println("this works");
 			}
 		}
 		
-		if(Coordinates[lastIndexReached][0] == yComponent) {
-			if(Coordinates[lastIndexReached][0] > xComponent) {
+		if(Coordinates[lastIndexReached+1][1] == yComponent) {
+			if(Coordinates[lastIndexReached+1][0]< xComponent) {
 				facingDirection = "left" ;
 			}
-			if(Coordinates[lastIndexReached][0] < xComponent) {
+			if(Coordinates[lastIndexReached+1][0]> xComponent) {
 				facingDirection = "right" ;
 			}
 		}
 		
 		if(facingDirection.equals("up")) {
-			if(Coordinates[lastIndexReached+1][1]  - yComponent <10) {
-				yComponent += Coordinates[lastIndexReached+1][1] - yComponent;
+			if(yComponent - Coordinates[lastIndexReached+1][1] <10) {
+				yComponent -=  yComponent - Coordinates[lastIndexReached+1][1];
 			}else {
-				yComponent -= vM/10;
+				yComponent -= vM/2;
 			}
 		}
 		
 		if(facingDirection.equals("down")) {
-			if(yComponent - Coordinates[lastIndexReached+1][1] <10) {
+			if(Coordinates[lastIndexReached+1][1] - yComponent <10) {
 				yComponent += Coordinates[lastIndexReached+1][1] - yComponent;
 			}else {
-				yComponent += vM/10;
+				yComponent += vM/2;
 			}
 		
 		}
@@ -75,7 +77,7 @@ public class Guard extends Character {
 			if(xComponent - Coordinates[lastIndexReached+1][0] <10) {
 				xComponent += Coordinates[lastIndexReached+1][0] - xComponent;
 			}else {
-			xComponent -= hM/10;
+			xComponent -= hM/2;
 			}
 		}
 		
@@ -83,18 +85,24 @@ public class Guard extends Character {
 			if(Coordinates[lastIndexReached+1][0] - xComponent <10) {
 				xComponent += Coordinates[lastIndexReached+1][0] - xComponent;
 			}else {
-			xComponent += hM/10;
+			xComponent += hM/2;
 			}
 		}
+		System.out.println("facingDirection = " + facingDirection);
+		System.out.println("lastIndexReached = " + lastIndexReached);
+		System.out.println("characterpoint:("+xComponent+","+yComponent+")");
+		System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
+		System.out.println("");
 		
-		//		if(xComponent < 200) {
-		//			xComponent += hM/10;
-		//			String FacingDirection = "right";
-		//		}
-		//		if(xComponent >= 200 && xComponent<205) {
-		//			yComponent += vM/10;
-		//			String FacingDirection = "down";
-		//		}
+		
+//		if(xComponent < 200) {
+//			xComponent += hM/2;
+//			String FacingDirection = "right";
+//		}
+//		if(xComponent >= 200 && xComponent<205) {
+//			yComponent += vM/2;
+//			String FacingDirection = "down";
+//		}
 
 
 
@@ -105,14 +113,6 @@ public class Guard extends Character {
 	public void setPath(int[][]points) {
 		Coordinates = points;
 	}
-
-	public void followPoint(int[] point) {
-		if(this.getX()<point[0]) {
-
-		}
-	}
-
-	
 
 	//	private void setFacingDirection() {
 	//		if(this.cursorAngle< Math.PI/2 && this.cursorAngle< Math.PI/2) {
