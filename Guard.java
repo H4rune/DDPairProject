@@ -126,9 +126,9 @@ public class Guard extends Character {
 		if(facingDirection.equals("left")) {
 			return Math.PI;
 		}else if(facingDirection.equals("up")) {
-			return Math.PI/2;
-		}else if(facingDirection.equals("down")) {
 			return -Math.PI/2;
+		}else if(facingDirection.equals("down")) {
+			return Math.PI/2;
 		}else {
 			return 0;
 		}
