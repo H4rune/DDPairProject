@@ -114,6 +114,9 @@ public class Map extends JPanel implements Runnable, KeyListener{
 					character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
 				}
 				else {
+					//update position here
+//					character.updatePosition();
+					
 					//Draw image
 					Image image = character.getImage();
 					
