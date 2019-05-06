@@ -52,6 +52,10 @@ public abstract class Character {
 	public Image getImage() {
 		return image;
 	}
+	
+	public boolean isAlive() {
+		return true;
+	}
 
 	abstract public void setMovement(int dx, int dy);
 

@@ -116,7 +116,7 @@ public class Player extends Character{
 	@Override
 	public void updateHitbox() {
 		// TODO Auto-generated method stub
-		
+		hitbox.translate(hM, vM);
 	}
 
 }

@@ -71,9 +71,6 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		
 		Graphics2D g2= (Graphics2D) g;
 		ArrayList<Rectangle> hitboxes = new ArrayList<Rectangle>();
-		for(Character character:characters) {
-			
-		}
 		
 
 		for(Character character:characters) {
@@ -103,6 +100,9 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
 			g.drawRect((int)character.getHitbox().getX(), (int)character.getHitbox().getY(), (int)character.getHitbox().getWidth(), (int)character.getHitbox().getHeight());
 			
+			character.updateHitbox();
+			
+			
 			hitboxes.clear();
 			for(Character CBox:characters) {
 				if(!character.hitbox.equals(CBox.getHitbox())) {
@@ -111,7 +111,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			}
 			for(Rectangle hitbox : hitboxes) {
 				if(hitbox.intersects(character.getHitbox())) {
-					
+					character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
 				}
 				else {
 					//Draw image
@@ -127,13 +127,13 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			
 			
 			//Draw image
-			Image image = character.getImage();
-			
-			double angle = character.getAngle();
-			
-			g2.rotate(angle, xCenter, yCenter);
-			g.drawImage(image, xPos, yPos, null);
-			g2.rotate(-angle, xCenter, yCenter);
+//			Image image = character.getImage();
+//			
+//			double angle = character.getAngle();
+//			
+//			g2.rotate(angle, xCenter, yCenter);
+//			g.drawImage(image, xPos, yPos, null);
+//			g2.rotate(-angle, xCenter, yCenter);
 		}
 
 	}
