@@ -141,6 +141,13 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 	}
 	
+	public void checkForDeadCharacters(Character character) {
+		int playerX = characters.get(0).getX();
+		int playerY = characters.get(0).getY();
+		if(1==1/*this guys is a guard*/) {
+			//do the stuff here
+		}
+	}
 	
 	public void mainLoop() {//need to create a consistent game loop : (used fixed frame rates) http://www.java-gaming.org/index.php?topic=24220.0
 		//now in gameLoop

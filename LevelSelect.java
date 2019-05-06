@@ -10,6 +10,31 @@ import java.util.ArrayList;
 import java.awt.event.*;
 
 public class LevelSelect implements ActionListener{
+	
+	/*Read this!!!!!!!!!!
+	 * 
+	 * 
+	 * 
+	 * For every level, Player must be the first object added to the characters ArrayList!!!!
+	 * For every level, Player must be the first object added to the characters ArrayList!!!!
+	 * For every level, Player must be the first object added to the characters ArrayList!!!!
+	 * For every level, Player must be the first object added to the characters ArrayList!!!!
+	 * For every level, Player must be the first object added to the characters ArrayList!!!!
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * */
+	
+	
+	
+	
+	
+	
+	
+	
 	//School
 	String playerAddress = "T:\\Hello There\\transparentDD.png";
 	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
