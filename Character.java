@@ -12,6 +12,7 @@ import java.awt.event.*;
 
 public abstract class Character {
 	int[][] Coordinates /*= {{2,2},{2,2}}*/;
+	boolean isAlive= true;
 	double cursorAngle = 0;
 	int hM = 10;
 	int vM = 10;
@@ -54,7 +55,10 @@ public abstract class Character {
 	}
 	
 	public boolean isAlive() {
-		return true;
+		return isAlive;
+	}
+	public void setDead() {
+		isAlive = false;
 	}
 
 	abstract public void setMovement(int dx, int dy);
