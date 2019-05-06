@@ -109,7 +109,7 @@ public class Guard extends Character {
 
 
 	}
-	
+
 	public void setPath(int[][]points) {
 		Coordinates = points;
 	}
@@ -123,8 +123,15 @@ public class Guard extends Character {
 //	abstract public void setMovement(int dx, int dy) ;
 	@Override
 	public double getAngle() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(facingDirection.equals("left")) {
+			return Math.PI;
+		}else if(facingDirection.equals("up")) {
+			return Math.PI/2;
+		}else if(facingDirection.equals("down")) {
+			return -Math.PI/2;
+		}else {
+			return 0;
+		}
 	}
 	@Override
 	public void setMovement(int dx, int dy) {
