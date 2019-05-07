@@ -142,9 +142,12 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	}
 	
 	public void checkForDeadCharacters(Character character) {
-		int playerX = characters.get(0).getX();
-		int playerY = characters.get(0).getY();
-		if(1==1/*this guys is a guard*/) {
+		
+		if(character instanceof Guard) {
+			int playerX = characters.get(0).getX();
+			int playerY = characters.get(0).getY();
+			int guardX = character.getX();
+			int guardY = character.getY();
 			//do the stuff here
 		}
 	}

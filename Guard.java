@@ -2,6 +2,8 @@ public class Guard extends Character {
 	int lastIndexReached;
 	int IndexToReach;
 	int index;
+	int sightRadius = 128;
+	double sightAngle = Math.PI/2;
 	String facingDirection = "";// "up" "down" "left" "right"
 	
 
@@ -105,11 +107,34 @@ public class Guard extends Character {
 //		}
 
 
-
-
+	
 
 	}
+	public boolean canHeSeeThis(int playerX, int playerY) {
+		double distance = Math.sqrt(Math.pow((playerX - xComponent), 2)+ Math.pow((playerY - yComponent), 2));
+		if(distance < sightRadius) {
+			double theAngle = 0;
 
+			int xLength = playerX - xComponent;
+			int yLength = playerY - yComponent;
+
+			float angle = (float) Math.toDegrees(Math.atan2(yLength, xLength));
+			theAngle = Math.toRadians(angle);
+			if(!facingDirection.equals("right")) {
+				if(this.getAngle()+sightAngle/2 > angle && this.getAngle()-sightAngle/2 > angle) {
+					
+				}
+			}
+			
+			if(1==1) {
+				return false;
+			}
+
+		}else {
+			return true;
+		}
+		return false;//comment this out later
+	}
 	public void setPath(int[][]points) {
 		Coordinates = points;
 	}
