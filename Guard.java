@@ -1,4 +1,5 @@
 public class Guard extends Character {
+	boolean staticGuard = true;
 	int lastIndexReached;
 	int IndexToReach;
 	int index;
@@ -31,7 +32,7 @@ public class Guard extends Character {
 		//			
 		//		}
 //		IndexToReach = lastIndexReached+1;
-		
+		if(!staticGuard) {
 		if(xComponent == Coordinates[lastIndexReached+1][0] && yComponent == Coordinates[lastIndexReached+1][1]) {
 			if(lastIndexReached == Coordinates.length-2) {
 				lastIndexReached = -1;
@@ -106,37 +107,46 @@ public class Guard extends Character {
 //			String FacingDirection = "down";
 //		}
 
-
+		}
 	
 
 	}
-	public boolean canHeSeeThis(int playerX, int playerY) {
-		double distance = Math.sqrt(Math.pow((playerX - xComponent), 2)+ Math.pow((playerY - yComponent), 2));
+	public void/*make this boolean later*/ canHeSeeThis(int playerX, int playerY) {
+//		xVectorComponent = ;  
+//		yVectorComponent = ;
+		int xLength = playerX - xComponent;
+		int yLength = playerY - yComponent;
+		double distance = Math.sqrt(Math.pow(xLength, 2)+ Math.pow(yLength, 2));
 		if(distance < sightRadius) {
-			double theAngle = 0;
+			float angle = (float)(Math.atan2(yLength, xLength));//this is in radians
+			System.out.println("angle = " + (int)Math.toDegrees(angle));
+//			if(angle<0) {
+//				angle+= 2*Math.PI;
+//			}else if(angle>2*Math.PI){
+//				angle-= 2*Math.PI;
+//			}
+//			if(playerY>yComponent) {
+//				angle*= (-1);
+//			}
+//			
+//			if(!facingDirection.equals("right")) {
+//				if(this.getAngle()+sightAngle/2 > angle && this.getAngle()-sightAngle/2 > angle) {
+//					
+//				}
+//			}
 
-			int xLength = playerX - xComponent;
-			int yLength = playerY - yComponent;
+//			if(1==1) {
+//				return false;
+//			}
 
-			float angle = (float) Math.toDegrees(Math.atan2(yLength, xLength));
-			theAngle = Math.toRadians(angle);
-			if(!facingDirection.equals("right")) {
-				if(this.getAngle()+sightAngle/2 > angle && this.getAngle()-sightAngle/2 > angle) {
-					
-				}
-			}
-			
-			if(1==1) {
-				return false;
-			}
-
-		}else {
+		}/*else {
 			return true;
 		}
 		return false;//comment this out later
-	}
+*/	}
 	public void setPath(int[][]points) {
 		Coordinates = points;
+		staticGuard = false;
 	}
 
 	//	private void setFacingDirection() {

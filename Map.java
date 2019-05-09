@@ -72,7 +72,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		Graphics2D g2= (Graphics2D) g;
 		ArrayList<Rectangle> hitboxes = new ArrayList<Rectangle>();
 		
-
+		
 		for(Character character:characters) {
 			
 			//Calculating image movement below
@@ -137,6 +137,17 @@ public class Map extends JPanel implements Runnable, KeyListener{
 //			g2.rotate(angle, xCenter, yCenter);
 //			g.drawImage(image, xPos, yPos, null);
 //			g2.rotate(-angle, xCenter, yCenter);
+
+			if(character instanceof Guard) {
+				int playerX = characters.get(0).getX();
+				int playerY = characters.get(0).getY();
+				
+				((Guard) character).canHeSeeThis(playerX, playerY);
+//				int guardX = character.getX();
+//				int guardY = character.getY();
+				
+				//do the stuff here
+			}
 		}
 
 	}
@@ -146,8 +157,11 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		if(character instanceof Guard) {
 			int playerX = characters.get(0).getX();
 			int playerY = characters.get(0).getY();
-			int guardX = character.getX();
-			int guardY = character.getY();
+			
+			((Guard) character).canHeSeeThis(playerX, playerY);
+//			int guardX = character.getX();
+//			int guardY = character.getY();
+			
 			//do the stuff here
 		}
 	}
