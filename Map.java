@@ -141,7 +141,6 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			if(character instanceof Guard) {
 				int playerX = characters.get(0).getX();
 				int playerY = characters.get(0).getY();
-				
 				((Guard) character).canHeSeeThis(playerX, playerY);
 //				int guardX = character.getX();
 //				int guardY = character.getY();

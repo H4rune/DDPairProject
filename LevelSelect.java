@@ -226,8 +226,9 @@ public class LevelSelect implements ActionListener{
 //		((Guard) guard2).setPath(lmao2);
 		map = new Map(500,500);
 		Character player = new Player(playerAddress);
-		map.addCharacter(guard);
 		map.addCharacter(player);
+		map.addCharacter(guard);
+		
 //		map.addCharacter(guard2);
 		map.mainLoop();
 	}

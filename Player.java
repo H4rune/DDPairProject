@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 public class Player extends Character{
 	
-	String imageAddress = ""; // Change this when back in school
+	String imageAddress = ""; // Change this when back in schools
 	
 	Player(String imageFilePath){
 		imageAddress = imageFilePath;

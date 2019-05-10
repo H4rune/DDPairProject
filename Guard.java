@@ -5,7 +5,7 @@ public class Guard extends Character {
 	int index;
 	int sightRadius = 128;
 	double sightAngle = Math.PI/2;
-	String facingDirection = "";// "up" "down" "left" "right"
+	String facingDirection = "left";// "up" "down" "left" "right"
 	
 
 	String imageAddress = "";
@@ -109,8 +109,8 @@ public class Guard extends Character {
 
 		}
 	
-
 	}
+	
 	public void/*make this boolean later*/ canHeSeeThis(int playerX, int playerY) {
 //		xVectorComponent = ;  
 //		yVectorComponent = ;
@@ -119,12 +119,37 @@ public class Guard extends Character {
 		double distance = Math.sqrt(Math.pow(xLength, 2)+ Math.pow(yLength, 2));
 		if(distance < sightRadius) {
 			float angle = (float)(Math.atan2(yLength, xLength));//this is in radians
-			System.out.println("angle = " + (int)Math.toDegrees(angle));
-//			if(angle<0) {
-//				angle+= 2*Math.PI;
-//			}else if(angle>2*Math.PI){
-//				angle-= 2*Math.PI;
+			System.out.println("\nGuardX = "+ xComponent + "\nGuardY = " + yComponent);
+			System.out.println("playerx = " + playerX + "\nplayerY = " + playerY);
+			
+			//work here
+			if(facingDirection.equals("up")) {
+				if(playerY<yComponent) {
+					angle = (float) (angle + Math.PI);
+				}else {
+					angle = (float) (Math.PI - angle);
+				}
+			}
+			if(facingDirection.equals("left")) {
+				//angle*= -1;
+				if(playerY<yComponent) {
+					angle = (float) (angle + Math.PI);
+				}else {
+					angle = (float) (Math.PI - angle);
+				}
+				
+			}
+			if(facingDirection.equals("down")) {
+				angle+=1.5*Math.PI;
+			}
+//			if(angle<-Math.PI) {
+//				angle+= Math.PI;
+//				System.out.println("lmao");
+//			}else if(angle>Math.PI){
+//				angle-= Math.PI;
+//				System.out.println("lol");
 //			}
+			System.out.println("angle = " + (int)Math.toDegrees(angle));
 //			if(playerY>yComponent) {
 //				angle*= (-1);
 //			}
@@ -144,6 +169,7 @@ public class Guard extends Character {
 		}
 		return false;//comment this out later
 */	}
+	
 	public void setPath(int[][]points) {
 		Coordinates = points;
 		staticGuard = false;
