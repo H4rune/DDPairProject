@@ -147,6 +147,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 					thePlayer.setDead();
 					System.out.println("player is dead");
 				}
+				
 //				checkForDeadCharacters(character);
 			}
 		}

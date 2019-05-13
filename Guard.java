@@ -19,6 +19,10 @@ public class Guard extends Character {
 		xComponent = 100;
 		yComponent = 100;
 	}
+	public void setVision(int angleInRadians, int radius) {//angle is in radians
+		sightAngle = angleInRadians;
+		sightRadius = radius;
+	}
 	public void setStartingPoint(int x, int y) {
 		xComponent = x;
 		yComponent = y; 		
