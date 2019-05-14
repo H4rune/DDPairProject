@@ -1,3 +1,4 @@
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
@@ -168,7 +169,7 @@ public class LevelSelect implements ActionListener{
 	
 
 	private void create2() {
-		Character guard = new Guard(easyGuardAddress);
+		Character guard = (Character) new Guard(easyGuardAddress);
 		((Guard) guard).setStartingPoint(100, 100);;
 		int[][] lmao = {{100,100},{200,100},{100,100},{300,100},{300,400},{350,400},{350,420},{100,420},{100,400}};
 		((Guard) guard).setPath(lmao);
@@ -219,7 +220,7 @@ public class LevelSelect implements ActionListener{
 		Character guard = new Guard(easyGuardAddress);
 		((Guard) guard).setStartingPoint(100, 100);;
 		int[][] lmao = {{100,100},{200,100},{100,100},{300,100},{300,400},{350,400},{350,420},{100,420},{100,400}};
-		//((Guard) guard).setPath(lmao);
+		((Guard) guard).setPath(lmao);
 //		Character guard2 = new Guard(easyGuardAddress);
 //		((Guard) guard2).setStartingPoint(150, 150);;
 //		int[][] lmao2 = {{150,150},{150,200},{150,0},{300,0},{300,400},{350,400},{350,420},{150,420}};
