@@ -188,6 +188,31 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		thread = new Thread(singleton,"test");
 		thread.start();
 	}
+	
+	//Code to end game
+	public void stopGame() {
+		thread.stop();
+	}
+	public void playerWon() {
+		frame = new JFrame();
+		characters = new ArrayList<Character>();
+		closing = false;
+		singleton = this;
+
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setSize(500,500);
+		Graphics g = frame.getGraphics();
+		JLabel words = new JLabel();
+		words.setText("You Won!");
+		singleton.add(words);
+		frame.add(singleton);
+//		singleton.paintComponents(g);
+		frame.setVisible(true);
+
+//		frame.addKeyListener(this);
+		
+	}
+	
 
 	@Override
 	public void run() {
