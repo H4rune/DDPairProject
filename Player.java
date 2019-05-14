@@ -132,6 +132,7 @@ public class Player extends Character{
 		yComponent -= vM;
 		
 		//Add what will happend when colliding with blocks and enemies
+		
 	}
 
 }

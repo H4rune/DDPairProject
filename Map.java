@@ -194,12 +194,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		thread.stop();
 	}
 	public void playerWon() {
-		JFrame lastFrame = new JFrame();
-		JLabel labely = new JLabel();
-		labely.setText("You Won!");
-		lastFrame.add(labely);
-		lastFrame.pack();
-		lastFrame.setVisible(true);
+		 //add text saying they won here
 		
 	}
 	

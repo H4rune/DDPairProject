@@ -25,8 +25,11 @@ public class WinBlock extends WallBlock{
 	
 	public void win() {
 		//add code here to make the game over
-		map.stopGame();
+		System.out.println("hello");
 		map.playerWon();
+		System.out.println("hi");
+		map.stopGame();
+		
 	}
 	
 }
