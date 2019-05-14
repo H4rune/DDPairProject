@@ -119,4 +119,19 @@ public class Player extends Character{
 		hitbox.translate(hM, vM);
 	}
 
+
+	@Override
+	public void collisionReaction(Character otherCharacter, boolean informOther) {
+		// TODO Auto-generated method stub
+		if(informOther) {
+			otherCharacter.collisionReaction(this, false);
+		}
+		
+		//For player needs to reverse the movement
+		xComponent -= hM;
+		yComponent -= vM;
+		
+		//Add what will happend when colliding with blocks and enemies
+	}
+
 }

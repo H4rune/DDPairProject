@@ -112,7 +112,25 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			}
 			for(Rectangle hitbox : hitboxes) {
 				if(hitbox.intersects(character.getHitbox())) {
+					Character otherCharacter = null;
+					
+					for(Character hitter: characters) {
+						if(hitter.getHitbox().equals(hitbox)) {
+							otherCharacter = hitter;
+						}
+					}
+					
+					character.collisionReaction(otherCharacter, true);
 					character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
+					
+					
+					Image image = character.getImage();
+
+					double angle = character.getAngle();
+
+					g2.rotate(angle, xCenter, yCenter);
+					g.drawImage(image, xPos, yPos, null);
+					g2.rotate(-angle, xCenter, yCenter);
 				}
 				else {
 					//update position here

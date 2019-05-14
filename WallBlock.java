@@ -35,4 +35,12 @@ public class WallBlock extends Character {
 		
 	}
 
+	@Override
+	public void collisionReaction(Character otherCharacter, boolean informOther) {
+		// TODO Auto-generated method stub
+		if(informOther) {
+			otherCharacter.collisionReaction(this, false);
+		}
+	}
+
 }
