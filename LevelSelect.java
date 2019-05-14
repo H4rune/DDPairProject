@@ -236,7 +236,15 @@ public class LevelSelect implements ActionListener{
 	}
 
 	private void create7() {
-		
+		Character player = new Player(playerAddress);
+		Character block = new WallBlock(wallBlockAddress,200,200);
+		Character winner = new WinBlock(wallBlockAddress,300,300, map);
+		map = new Map(500,500);
+		map.addCharacter(player);
+		map.addCharacter(block);
+		map.addCharacter(winner);
+		map.mainLoop();
+
 	}
 
 	private void create8() {
