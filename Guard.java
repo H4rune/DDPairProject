@@ -208,5 +208,10 @@ public class Guard extends Character {
 		// TODO Auto-generated method stub
 
 	}
+	@Override
+	public void collisionReaction(Character otherCharacter, boolean informOther) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

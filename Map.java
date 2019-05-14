@@ -99,7 +99,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 			//Calculate and draw hitbox before actual image
 			character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
-			g.drawRect((int)character.getHitbox().getX(), (int)character.getHitbox().getY(), (int)character.getHitbox().getWidth(), (int)character.getHitbox().getHeight());
+//			g.drawRect((int)character.getHitbox().getX(), (int)character.getHitbox().getY(), (int)character.getHitbox().getWidth(), (int)character.getHitbox().getHeight());
 
 			character.updateHitbox();
 
