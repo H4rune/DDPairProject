@@ -163,11 +163,30 @@ public class LevelSelect implements ActionListener{
 	//Place all characters into maps here
 	private void create1() {
 		Character player = new Player(playerAddress, map);
-		player.xComponent = 65;
-		player.yComponent = 65;
+		player.xComponent = 65 + 32;
+		player.yComponent = 65 + 32;
+		
+		Character[] walls = new Character[30];
+		for(int i = 0;i<=4;i++) {
+			walls[i]= new WallBlock(wallBlockAddress, 0,i*64);
+		}
+		for(int i = 5;i<=9;i++) {
+			walls[i]= new WallBlock(wallBlockAddress, 576,(i-5)*64);
+		}
+		for(int i = 10;i<=19;i++) {
+			walls[i]= new WallBlock(wallBlockAddress, (i-10)*64,0);
+			walls[i+10]= new WallBlock(wallBlockAddress, (i-10)*64,256);
+		}
+		
 		Map map;
-		map = new Map(640,320);
+		map = new Map(640 +18,320 +32);
 		map.addCharacter(player);
+		for(Character wall:walls) {
+			map.addCharacter(wall);
+		}
+		
+		Character Winner = new WinBlock(wallBlockAddress,500,192, map);
+		map.addCharacter(Winner);
 		map.mainLoop();
 	}
 	
