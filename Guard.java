@@ -1,4 +1,3 @@
-
 //seeing player when facing up works, right works, left works
 public class Guard extends Character {
 	boolean staticGuard = true;
@@ -18,6 +17,12 @@ public class Guard extends Character {
 		lastIndexReached= 0;
 		xComponent = 100;
 		yComponent = 100;
+		hM = 6;
+		vM = 6;
+	}
+	public void setSpeed(int speed) {
+		hM = speed;
+		vM = speed;
 	}
 	public void setVision(int angleInRadians, int radius) {//angle is in radians
 		sightAngle = angleInRadians;
@@ -38,8 +43,7 @@ public class Guard extends Character {
 		//			
 		//		}
 		//		IndexToReach = lastIndexReached+1;
-		hM = 3;
-		vM = 3;
+		
 		if(!staticGuard) {
 			if(xComponent == Coordinates[lastIndexReached+1][0] && yComponent == Coordinates[lastIndexReached+1][1]) {
 				if(lastIndexReached == Coordinates.length-2) {

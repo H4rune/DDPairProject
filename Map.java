@@ -75,7 +75,8 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 		Graphics2D g2= (Graphics2D) g;
 		ArrayList<Rectangle> hitboxes = new ArrayList<Rectangle>();
-
+		
+		
 
 		for(Character character:characters) {
 
@@ -97,8 +98,8 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			//uses offset to make it look like it is rotating about its center
 			int xPos = xCenter - character.getXOffset();
 			int yPos = yCenter - character.getYOffset();
-
-
+			
+			g.setClip(xPos-50, yPos-50, 200, 200);
 
 			//Calculate and draw hitbox before actual image
 			character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
@@ -217,9 +218,11 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	}
 	public void playerText(String text) {
 		 //add text saying they won here
-		frame.removeAll();
 		singleton.removeAll();
-		frame.add(new JLabel(text));
+		frame.removeAll();
+		Graphics g = singleton.getGraphics();
+		g.drawLine(1, 1, 200, 200);
+		singleton.paint(g);
 	}
 	
 
