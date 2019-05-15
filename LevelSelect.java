@@ -37,10 +37,10 @@ public class LevelSelect implements ActionListener{
 	
 	
 	//School
-	String playerAddress = "T:\\Hello There\\transparentDD.png";
-	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
+	String playerAddress = "T:\\Hello There\\Player.jpg";
+	String easyGuardAddress = "T:\\Hello There\\Guard.jpg";
 	String wallBlockAddress = "T:\\Hello There\\WallBlock.jpg";
-	String WinBlockAddress = "T:\\Hello There\\WinBlock.jpg";
+	String WinBlockAddress = "T:\\Hello There\\Door.png";
 	//Anudeep
 //	String playerAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\transparentDD.png";
 //	String easyGuardAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\easyGuard.png";
