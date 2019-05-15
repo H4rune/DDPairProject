@@ -178,6 +178,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 					if(((Guard) character).canHeSeeThis(px, py)) {
 						thePlayer.setDead();
 //						System.out.println("player is dead");
+						thePlayer.collisionReaction(character, false);
 					}
 				}
 				
@@ -227,7 +228,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 		// TODO Auto-generated method stub
 		boolean loop = true;
 		long lastLoopTime = System.nanoTime();
-		final int TARGET_FPS = 10;
+		final int TARGET_FPS = 60;
 		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
 		long fps = 0;
 		long lastFpsTime = 0;

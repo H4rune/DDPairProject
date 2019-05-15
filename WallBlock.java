@@ -7,8 +7,8 @@ public class WallBlock extends Character {
 	WallBlock(String imageFilePath, int x, int y){
 		imageAddress = imageFilePath;
 		setCharacterImage(imageAddress);
-		GivenX = x +32;
-		GivenY = y +32;
+		GivenX = x;
+		GivenY = y;
 	}
 	
 	public void setCollisionReaction() {
