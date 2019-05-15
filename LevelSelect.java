@@ -37,16 +37,17 @@ public class LevelSelect implements ActionListener{
 	
 	
 	//School
-//	String playerAddress = "T:\\Hello There\\transparentDD.png";
-//	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
-//	String wallBlockAddress = "T:\\Hello There\\wallSprite.png";
+	String playerAddress = "T:\\Hello There\\transparentDD.png";
+	String easyGuardAddress = "T:\\Hello There\\easyGuard.png";
+	String wallBlockAddress = "T:\\Hello There\\WallBlock.jpg";
+	String WinBlockAddress = "T:\\Hello There\\WinBlock.jpg";
 	//Anudeep
 //	String playerAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\transparentDD.png";
 //	String easyGuardAddress = "C:\\Users\\ametu\\OneDrive\\Desktop\\DDPics\\easyGuard.png";
 	//Harun
-	String playerAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
-	String easyGuardAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
-	String wallBlockAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
+//	String playerAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
+//	String easyGuardAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
+//	String wallBlockAddress = "C:\\Users\\harun\\Desktop\\miscelaneous\\PairProjPic\\transparentDD.png";
 	JFrame frame = new JFrame();
 	JPanel contentPane = new JPanel();
 	JButton level1 = new JButton();
@@ -185,7 +186,7 @@ public class LevelSelect implements ActionListener{
 //			map.addCharacter(wall);
 //		}
 		
-		Character Winner = new WinBlock(wallBlockAddress,500,192, map);
+		Character Winner = new WinBlock(WinBlockAddress,500,192, map);
 		map.addCharacter(Winner);
 		map.mainLoop();
 	}
@@ -215,7 +216,7 @@ public class LevelSelect implements ActionListener{
 //			map.addCharacter(wall);
 //		}
 		
-		Character Winner = new WinBlock(wallBlockAddress,500,192, map);
+		Character Winner = new WinBlock(WinBlockAddress,500,192, map);
 		map.addCharacter(Winner);
 		
 		//add guards
@@ -240,7 +241,7 @@ public class LevelSelect implements ActionListener{
 		map.addCharacter(player);
 		
 		
-		Character Winner = new WinBlock(wallBlockAddress,900,300, map);
+		Character Winner = new WinBlock(WinBlockAddress,900,300, map);
 		map.addCharacter(Winner);
 		
 		//Add guards
@@ -308,7 +309,7 @@ public class LevelSelect implements ActionListener{
 		map.addCharacter(player);
 		
 		
-		Character Winner = new WinBlock(wallBlockAddress,550,550, map);
+		Character Winner = new WinBlock(WinBlockAddress,550,550, map);
 		map.addCharacter(Winner);
 
 		
@@ -357,7 +358,7 @@ public class LevelSelect implements ActionListener{
 		map.addCharacter(block3);
 		map.addCharacter(block4);
 
-		Character Winner = new WinBlock(wallBlockAddress,32,32, map);
+		Character Winner = new WinBlock(WinBlockAddress,32,32, map);
 		map.addCharacter(Winner);
 		map.mainLoop();
 
@@ -399,7 +400,7 @@ public class LevelSelect implements ActionListener{
 		map.addCharacter(block4);
 		map.addCharacter(block5);
 
-		Character Winner = new WinBlock(wallBlockAddress,32,32, map);
+		Character Winner = new WinBlock(WinBlockAddress,32,32, map);
 		map.addCharacter(Winner);
 		map.mainLoop();
 
@@ -470,11 +471,11 @@ public class LevelSelect implements ActionListener{
 		
 		
 		Map map;
-		map = new Map(1000 +18,100);
+		map = new Map(1000 +18,200);
 		map.addCharacter(player);
 		
 		
-		Character Winner = new WinBlock(wallBlockAddress,900,50, map);
+		Character Winner = new WinBlock(WinBlockAddress,900,50, map);
 		map.addCharacter(Winner);
 		
 		//Add guards

@@ -19,10 +19,10 @@ public class WinBlock extends WallBlock{
 		
 		//Add what will happend when colliding with blocks and enemies
 		if(otherCharacter instanceof Player) {
-			win();
-			return false;
+//			win();
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	public void win() {

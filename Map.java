@@ -1,3 +1,4 @@
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -125,19 +126,23 @@ public class Map extends JPanel implements Runnable, KeyListener{
 						}
 					}
 					if(character instanceof WinBlock) {
-						if(!character.collisionReaction(otherCharacter, true)) {
+						if(character.collisionReaction(otherCharacter, true)) {
 							g.setColor(Color.BLUE);
-							Font font = new Font("Verdana", Font.BOLD, 20);
-							g.setFont(font);;
-							System.out.println("you win yo!");
-							g.drawString("YOU WIN", singleton.getWidth()/2, singleton.getHeight()/2);
+							Font font = new Font("Verdana", Font.BOLD, 55);
+							g.setFont(font);
+							
+							g.drawString("YOU WIN", 0, singleton.getHeight()/2);
+							this.stopGame();
 						}
-					}else if(character instanceof Player && character.collisionReaction(otherCharacter, true)) {
+					}else if(otherCharacter instanceof Guard && character.collisionReaction(otherCharacter, true)) {
 						g.setColor(Color.BLUE);
 						Font font = new Font("Verdana", Font.BOLD, 20);
 						g.setFont(font);;
-						System.out.println("you lose yo!");
-						g.drawString("YOU LOOOOSE!", singleton.getWidth()/2, singleton.getHeight()/2);
+						
+						g.drawString("YOU LOSE", singleton.getWidth()/2, singleton.getHeight()/2);
+						this.stopGame();
+					}else if( character instanceof WallBlock){
+						character.collisionReaction(otherCharacter, true);
 					}
 					
 					character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
@@ -198,7 +203,8 @@ public class Map extends JPanel implements Runnable, KeyListener{
 						g.setFont(font);;
 						g.drawString("YOU LOSE", singleton.getWidth()/2, singleton.getHeight()/2);
 						thePlayer.collisionReaction(character, false);
-						
+						this.stopGame();
+//						GUARD DETECTING PLAYER WILL END THE GAME SUCCESSFULLY^^^^
 //						System.out.println("player is dead");
 						
 					}
@@ -210,7 +216,14 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			}
 			
 		if(character instanceof Player && (character.xComponent<0 || character.xComponent>singleton.getWidth()|| character.yComponent<0 || character.yComponent>singleton.getHeight())) {
+			g.setColor(Color.BLUE);
+			Font font = new Font("Verdana", Font.BOLD, 20);
+			g.setFont(font);;
+			g.drawString("YOU LOSE", singleton.getWidth()/2, singleton.getHeight()/2);
+			g.drawString("Out of Bounds", singleton.getWidth()/2, singleton.getHeight()/2+font.getSize());
+//			System.out.println("out of bounds works");
 			character.collisionReaction(new WallBlock(null, yPos, yPos), false);
+			
 		}
 		}
 
