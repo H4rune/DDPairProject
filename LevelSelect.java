@@ -163,7 +163,10 @@ public class LevelSelect implements ActionListener{
 	//Place all characters into maps here
 	private void create1() {
 		Character player = new Player(playerAddress, map);
-		map = new Map(500,500);
+		player.xComponent = 65;
+		player.yComponent = 65;
+		Map map;
+		map = new Map(640,320);
 		map.addCharacter(player);
 		map.mainLoop();
 	}

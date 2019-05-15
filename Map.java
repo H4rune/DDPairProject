@@ -163,7 +163,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 				int playerY = thePlayer.getY();
 				if(((Guard) character).canHeSeeThis(playerX, playerY)) {
 					thePlayer.setDead();
-					System.out.println("player is dead");
+//					System.out.println("player is dead");
 				}
 				
 //				checkForDeadCharacters(character);

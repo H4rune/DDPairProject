@@ -54,7 +54,7 @@ public class Guard extends Character {
 				}
 				if(Coordinates[lastIndexReached+1][1] < yComponent) {
 					facingDirection = "up" ;
-					System.out.println("this works");
+//					System.out.println("this works");
 				}
 			}
 
@@ -99,11 +99,11 @@ public class Guard extends Character {
 					xComponent += hM/2;
 				}
 			}
-			System.out.println("facingDirection = " + facingDirection);
-			System.out.println("lastIndexReached = " + lastIndexReached);
-			System.out.println("characterpoint:("+xComponent+","+yComponent+")");
-			System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
-			System.out.println("");
+//			System.out.println("facingDirection = " + facingDirection);
+//			System.out.println("lastIndexReached = " + lastIndexReached);
+//			System.out.println("characterpoint:("+xComponent+","+yComponent+")");
+//			System.out.println("CursorAngle:"+Math.toDegrees(cursorAngle));
+//			System.out.println("");
 
 
 			//		if(xComponent < 200) {
@@ -126,8 +126,8 @@ public class Guard extends Character {
 		double distance = Math.sqrt(Math.pow(xLength, 2)+ Math.pow(yLength, 2));
 		if(distance < sightRadius) {
 			angle = (float)(Math.atan2(yLength, xLength));//this is in radians
-			System.out.println("\nGuardX = "+ xComponent + "\nGuardY = " + yComponent);
-			System.out.println("playerx = " + playerX + "\nplayerY = " + playerY);
+//			System.out.println("\nGuardX = "+ xComponent + "\nGuardY = " + yComponent);
+//			System.out.println("playerx = " + playerX + "\nplayerY = " + playerY);
 			if(facingDirection.equals("right")) {
 				if(angle<0) {
 					angle*=-1;
@@ -163,7 +163,7 @@ public class Guard extends Character {
 				}
 
 			}
-			System.out.println("angle = " + (int)Math.toDegrees(angle));
+//			System.out.println("angle = " + (int)Math.toDegrees(angle));
 			if(angle <sightAngle/2 ) {
 				return true;
 			}else {
