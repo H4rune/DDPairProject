@@ -218,11 +218,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	}
 	public void playerText(String text) {
 		 //add text saying they won here
-		singleton.removeAll();
-		frame.removeAll();
-		Graphics g = singleton.getGraphics();
-		g.drawLine(1, 1, 200, 200);
-		singleton.paint(g);
+		
 	}
 	
 
