@@ -11,10 +11,11 @@ import javax.swing.ImageIcon;
 public class Player extends Character{
 	
 	String imageAddress = ""; // Change this when back in schools
-	
-	Player(String imageFilePath){
+	Map map;
+	Player(String imageFilePath, Map mappy){
 		imageAddress = imageFilePath;
 		setCharacterImage(imageAddress);
+		map = mappy;
 	}
 	
 	
@@ -132,6 +133,14 @@ public class Player extends Character{
 		yComponent -= vM;
 		
 		//Add what will happend when colliding with blocks and enemies
+		if(otherCharacter instanceof Guard) {
+			lose();
+		}
+	}
+	
+	public void lose() {
+		map.playerText("Uh Oh.. A guard hit you...");
+		map.stopGame();
 		
 	}
 

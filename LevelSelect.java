@@ -162,7 +162,7 @@ public class LevelSelect implements ActionListener{
 	
 	//Place all characters into maps here
 	private void create1() {
-		Character player = new Player(playerAddress);
+		Character player = new Player(playerAddress, map);
 		map = new Map(500,500);
 		map.addCharacter(player);
 		map.mainLoop();
@@ -180,7 +180,7 @@ public class LevelSelect implements ActionListener{
 	}
 
 	private void create3() {
-		Character player = new Player(playerAddress);
+		Character player = new Player(playerAddress, map);
 		Character block = new WallBlock(wallBlockAddress,200,200);
 		map = new Map(500,500);
 		map.addCharacter(player);
@@ -195,7 +195,7 @@ public class LevelSelect implements ActionListener{
 		((Guard) guard).setPath(lmao);
 		map = new Map(500,500);
 		map.addCharacter(guard);
-		Character player = new Player(playerAddress);
+		Character player = new Player(playerAddress, map);
 		map.addCharacter(player);
 		map.mainLoop();
 		
@@ -227,7 +227,7 @@ public class LevelSelect implements ActionListener{
 //		int[][] lmao2 = {{150,150},{150,200},{150,0},{300,0},{300,400},{350,400},{350,420},{150,420}};
 //		((Guard) guard2).setPath(lmao2);
 		map = new Map(500,500);
-		Character player = new Player(playerAddress);
+		Character player = new Player(playerAddress, map);
 		map.addCharacter(player);
 		map.addCharacter(guard);
 		
@@ -236,7 +236,7 @@ public class LevelSelect implements ActionListener{
 	}
 
 	private void create7() {
-		Character player = new Player(playerAddress);
+		Character player = new Player(playerAddress, map);
 		Character block = new WallBlock(wallBlockAddress,200,200);
 		Character winner = new WinBlock(wallBlockAddress,300,300, map);
 		map = new Map(500,500);
