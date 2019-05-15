@@ -1,4 +1,3 @@
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -29,7 +28,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	int dx = 0;
 	int dy = 0;
 	Point cursor;
-
+	ArrayList<int[]> WallBlockPoints = new ArrayList<int[]>();
 
 
 	public void setBackground() {
@@ -64,6 +63,10 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 	public void addCharacter(Character character) {
 		characters.add(character);
+		if(character instanceof WallBlock) {
+			int[] coordinates = {character.xComponent,character.yComponent};
+			WallBlockPoints.add(coordinates);
+		}
 	}
 
 	public void paintComponent(Graphics g) {
@@ -159,12 +162,26 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 			if(character instanceof Guard) {
 				Character thePlayer = characters.get(0);
-				int playerX = thePlayer.getX();
-				int playerY = thePlayer.getY();
-				if(((Guard) character).canHeSeeThis(playerX, playerY)) {
-					thePlayer.setDead();
-//					System.out.println("player is dead");
+				int px = thePlayer.getX();
+				int py = thePlayer.getY();
+				int xc = character.xComponent;
+				int yc = character.yComponent;
+				boolean noObjectsBetween = true;
+				for(int i = 0; i<WallBlockPoints.size(); i++) {
+					int bx = WallBlockPoints.get(i)[0];
+					int by = WallBlockPoints.get(i)[1];
+					if(((xc<bx&&bx<px) ||(xc>bx&&bx>px))&&((yc<by&&by<py)||(yc>by&&by>py))) {
+						noObjectsBetween = false;
+					}
 				}
+				if(noObjectsBetween) {
+					if(((Guard) character).canHeSeeThis(px, py)) {
+						thePlayer.setDead();
+//						System.out.println("player is dead");
+					}
+				}
+				
+				
 				
 //				checkForDeadCharacters(character);
 			}
