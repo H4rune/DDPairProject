@@ -11,7 +11,7 @@ public class WinBlock extends WallBlock{
 		map = mappy;
 	}
 	
-	public void collisionReaction(Character otherCharacter, boolean informOther) {
+	public boolean collisionReaction(Character otherCharacter, boolean informOther) {
 		// TODO Auto-generated method stub
 		if(informOther) {
 			otherCharacter.collisionReaction(this, false);
@@ -20,7 +20,9 @@ public class WinBlock extends WallBlock{
 		//Add what will happend when colliding with blocks and enemies
 		if(otherCharacter instanceof Player) {
 			win();
+			return false;
 		}
+		return true;
 	}
 	
 	public void win() {

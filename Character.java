@@ -28,7 +28,7 @@ public abstract class Character {
 	public Character() {
 
 	}
-	public abstract void collisionReaction(Character otherCharacter, boolean informOther);
+	public abstract boolean collisionReaction(Character otherCharacter, boolean informOther);
 	public Rectangle getHitbox() {
 		return hitbox;
 	}

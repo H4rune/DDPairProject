@@ -122,7 +122,7 @@ public class Player extends Character{
 
 
 	@Override
-	public void collisionReaction(Character otherCharacter, boolean informOther) {
+	public boolean collisionReaction(Character otherCharacter, boolean informOther) {
 		// TODO Auto-generated method stub
 		if(informOther) {
 			otherCharacter.collisionReaction(this, false);
@@ -135,11 +135,15 @@ public class Player extends Character{
 		//Add what will happend when colliding with blocks and enemies
 		if(otherCharacter instanceof Guard) {
 			lose();
+			return true;
 		}
+		return false;
 	}
 	
 	public void lose() {
-		map.playerText("Uh Oh.. A guard hit you...");
+		System.out.println("before too");
+		map.playerText("Uh Oh.. Watch out for Guards, and don't try to escape the screen...");
+		System.out.println("lmao this works");
 		map.stopGame();
 		
 	}

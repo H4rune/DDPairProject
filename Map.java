@@ -3,6 +3,8 @@ import javax.swing.*;
 
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -75,8 +77,7 @@ public class Map extends JPanel implements Runnable, KeyListener{
 
 		Graphics2D g2= (Graphics2D) g;
 		ArrayList<Rectangle> hitboxes = new ArrayList<Rectangle>();
-		
-		
+
 
 		for(Character character:characters) {
 
@@ -98,8 +99,8 @@ public class Map extends JPanel implements Runnable, KeyListener{
 			//uses offset to make it look like it is rotating about its center
 			int xPos = xCenter - character.getXOffset();
 			int yPos = yCenter - character.getYOffset();
-			
-			g.setClip(xPos-50, yPos-50, 200, 200);
+
+
 
 			//Calculate and draw hitbox before actual image
 			character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
@@ -123,8 +124,22 @@ public class Map extends JPanel implements Runnable, KeyListener{
 							otherCharacter = hitter;
 						}
 					}
+					if(character instanceof WinBlock) {
+						if(!character.collisionReaction(otherCharacter, true)) {
+							g.setColor(Color.BLUE);
+							Font font = new Font("Verdana", Font.BOLD, 20);
+							g.setFont(font);;
+							System.out.println("you win yo!");
+							g.drawString("YOU WIN", singleton.getWidth()/2, singleton.getHeight()/2);
+						}
+					}else if(character instanceof Player && character.collisionReaction(otherCharacter, true)) {
+						g.setColor(Color.BLUE);
+						Font font = new Font("Verdana", Font.BOLD, 20);
+						g.setFont(font);;
+						System.out.println("you lose yo!");
+						g.drawString("YOU LOOOOSE!", singleton.getWidth()/2, singleton.getHeight()/2);
+					}
 					
-					character.collisionReaction(otherCharacter, true);
 					character.setHitbox(xCenter, yCenter, character.getWidth(), character.getHeight());
 					
 					
@@ -178,8 +193,14 @@ public class Map extends JPanel implements Runnable, KeyListener{
 				if(noObjectsBetween) {
 					if(((Guard) character).canHeSeeThis(px, py)) {
 						thePlayer.setDead();
-//						System.out.println("player is dead");
+						g.setColor(Color.BLUE);
+						Font font = new Font("Verdana", Font.BOLD, 40);
+						g.setFont(font);;
+						g.drawString("YOU LOSE", singleton.getWidth()/2, singleton.getHeight()/2);
 						thePlayer.collisionReaction(character, false);
+						
+//						System.out.println("player is dead");
+						
 					}
 				}
 				
@@ -218,7 +239,10 @@ public class Map extends JPanel implements Runnable, KeyListener{
 	}
 	public void playerText(String text) {
 		 //add text saying they won here
-		
+		frame.removeAll();
+//		singleton.removeAll();
+//		frame.remove(singleton);
+		frame.add(new JLabel(text));
 	}
 	
 

@@ -1,3 +1,4 @@
+
 //seeing player when facing up works, right works, left works
 public class Guard extends Character {
 	boolean staticGuard = true;
@@ -213,8 +214,9 @@ public class Guard extends Character {
 
 	}
 	@Override
-	public void collisionReaction(Character otherCharacter, boolean informOther) {
+	public boolean collisionReaction(Character otherCharacter, boolean informOther) {
 		// TODO Auto-generated method stub
+		return false;
 		
 	}
 
